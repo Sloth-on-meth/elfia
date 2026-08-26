@@ -90,6 +90,30 @@ Cloudflare-fronted, CORS restricted to `https://elfia.nl`. Known endpoints:
 | `header` | Live announcement banner | no |
 | `termsAndConditions` | Full T&C text | no |
 | `winnerList` | Quest-game winners — real names; **do not republish** | — |
+| `getInvolved` | Application categories + form links. Needs `?programmeId=1` (Arcen) — without it: `{"code":104,"msg":"Missing Parameter."}` | no |
+| `enquiry` | Contact-form submit — **write endpoint, never called** | — |
+| `chatBot` | Site chatbot backend — **write endpoint, never called** | — |
+
+All six documented endpoints still return 200. `getInvolved`, `enquiry` and `chatBot` were
+found by reading elfia.com's own scripts rather than by guessing; blind probes for
+`catering`, `vendors`, `exhibitors`, `events`, `locations`, `realms`, `tickets` etc. all 404.
+`GET` on any endpoint returns `405 Method Not Allowed` — it is POST-only, so no API URL is
+linkable.
+
+### Data in the payloads that nothing on either site uses
+
+| Where | What | Count |
+|---|---|---|
+| `programme` → realm `shops[]` | Caterers — **now used**, see `food.html` | 14 |
+| `programme` → realm `exhibitors[]` | Traders: name, description, image, sequence. 110/110 have a description and an image, 1 has a link | 110 |
+| `programme` → `highlightImage[categoryType=highlight]` | Act/guest highlights | 36 |
+| `programme` → `highlightImage[categoryType=realms]` | Realms | 20 |
+| `programme` → `highlightImage[categoryType=workshop]` | Academy workshops | 5 |
+| `news` | Articles: title, HTML body, image (no date field) | 36 |
+| `header` | Live ticket banner | 1 |
+
+elfia.com fetches `shops` and `exhibitors` with every programme call but **renders neither** —
+no script on the site references either field.
 
 Snapshots were taken on 2026-08-26. Anything sourced from the API is point-in-time and
 can go stale (e.g. the announcement banner, sold-out status).
@@ -109,6 +133,14 @@ can go stale (e.g. the announcement banner, sold-out status).
   The Machinarium, The Lost World, Folk Nexus …) that no longer match the API, which now lists
   **twenty** for Arcen — including Melody Market, The Copper Quarter, Willow Way, Iron Fjord,
   Viking Village, Avalon and others added 5 Aug 2026. Only five names overlap. Worth a re-pull.
+- **`header` currently reads: "ALL Saturday tickets sold out. Some Sunday and Weekend tickets
+  still available!"** Nothing on this site says so. It is the most visitor-relevant fact in the
+  whole API and also the most volatile, so baking it into static HTML means it can go stale the
+  wrong way round (claiming sold out after a release).
+- `programme.html` "Hoogtepunten" lists 11 items; the API carries 36.
+- Minor bug in elfia.com's chatbot: `findGetInvolvedSection` matches the caterer category with
+  `/caterer/i`, but the section is titled **"Innkeepers"** — so caterer-application questions
+  never match a section.
 - The programme is provisional — its own data carries a "more updates coming soon" note,
   surfaced as a banner on the line-up page. When it changes, regenerate both `.ics` files.
 - Two band names arrived spelled two ways in the source data; the line-up now uses

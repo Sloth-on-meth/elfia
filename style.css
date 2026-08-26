@@ -268,6 +268,30 @@ body:has(#d-veg:checked) .lede .c-d-veg,
 body:has(#d-halal:checked) .lede .c-d-halal,
 body:has(#d-gf:checked) .lede .c-d-gf{display:inline}
 
+/* market */
+.jumplabel{font-size:.68rem;letter-spacing:.17em;text-transform:uppercase;color:var(--dim);
+  margin:0 0 .6rem}
+.daytabs.jumps a{font-size:.85rem;padding:.42rem .8rem;display:inline-flex;gap:.45rem;
+  align-items:baseline}
+.daytabs.jumps a b{font-weight:600;font-size:.7rem;color:var(--dim);font-variant-numeric:tabular-nums}
+.daytabs.jumps a:hover b{color:var(--accent)}
+.vengrid{display:grid;gap:.75rem;grid-template-columns:repeat(auto-fill,minmax(15.5rem,1fr))}
+.realmblock>h3 span{float:right;font-size:.68rem;letter-spacing:.12em;color:var(--dim);
+  text-transform:none;font-family:var(--sans)}
+.ven{background:var(--bg2);border:1px solid var(--line);border-radius:9px;padding:.85rem 1rem;
+     box-shadow:var(--shadow)}
+.ven h4{margin:0 0 .3rem;font-family:var(--serif);font-size:.98rem;font-weight:400;color:var(--ink)}
+.ven h4 a{color:var(--accent);text-decoration:none}
+.ven h4 a:hover{text-decoration:underline}
+.ven p{margin:0;font-size:.83rem;color:var(--dim);line-height:1.5}
+.azlist{list-style:none;margin:0;padding:0;columns:2;column-gap:2rem;font-size:.88rem}
+@media(min-width:52rem){.azlist{columns:3}}
+.azlist li{break-inside:avoid;display:flex;justify-content:space-between;gap:.75rem;
+  padding:.3rem 0;border-bottom:1px solid var(--line);margin:0}
+.azlist li a{text-decoration:none}
+.azlist li a:hover{text-decoration:underline}
+.azlist li em{font-style:normal;color:var(--dim);font-size:.76rem;text-align:right;flex:none}
+
 footer{padding:2.75rem 0 3rem;color:var(--dim);font-size:.86rem;border-top:1px solid var(--line);
        background:var(--bg2)}
 footer a{color:var(--dim)}
