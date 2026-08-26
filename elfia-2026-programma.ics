@@ -1,0 +1,727 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Elfia Arcen//Line-up 2026//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Elfia Arcen 2026 — Volledig programma / Full line-up
+X-WR-TIMEZONE:Europe/Amsterdam
+X-WR-CALDESC:Elfia Arcen 2026 — Kasteeltuinen Arcen\, 19 & 20 September
+  2026. Times can still change\; check the boards at the stages on the day
+ .
+BEGIN:VTIMEZONE
+TZID:Europe/Amsterdam
+X-LIC-LOCATION:Europe/Amsterdam
+BEGIN:DAYLIGHT
+TZOFFSETFROM:+0100
+TZOFFSETTO:+0200
+TZNAME:CEST
+DTSTART:19700329T020000
+RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=-1SU
+END:DAYLIGHT
+BEGIN:STANDARD
+TZOFFSETFROM:+0200
+TZOFFSETTO:+0100
+TZNAME:CET
+DTSTART:19701025T030000
+RRULE:FREQ=YEARLY;BYMONTH=10;BYDAY=-1SU
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+UID:20260919-giostra-fortunia-1130-fabius-the-jester@elfia.nl
+DTSTAMP:20260826T000000Z
+DTSTART;TZID=Europe/Amsterdam:20260919T113000
+DTEND;TZID=Europe/Amsterdam:20260919T120000
+SUMMARY:Fabius The Jester — Circus
+LOCATION:Giostra Fortunia · Kasteeltuinen Arcen\, Lingsforterweg 26\, 59
+ 44 BE Arcen
+DESCRIPTION:A multi-talented jester blending juggling\, acrobatics\, come
+ dy\, and fire into lively performances\nStage: Giostra Fortunia\nSaturday
+  19 September\, 11:30–12:00\nElfia Arcen 2026 — times can change\; ch
+ eck the boards at the stages.
+CATEGORIES:Show
+TRANSP:OPAQUE
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:20260919-giostra-fortunia-1230-salem-dee-story-of-elfia-laura-german-
+ wh@elfia.nl
+DTSTAMP:20260826T000000Z
+DTSTART;TZID=Europe/Amsterdam:20260919T123000
+DTEND;TZID=Europe/Amsterdam:20260919T130000
+SUMMARY:Salem Dee-Story Of Elfia + Laura/German Wheel — Circus
+LOCATION:Giostra Fortunia · Kasteeltuinen Arcen\, Lingsforterweg 26\, 59
+ 44 BE Arcen
+DESCRIPTION:Stage: Giostra Fortunia\nSaturday 19 September\, 12:30–13:0
+ 0\nElfia Arcen 2026 — times can change\; check the boards at the stages
+ .
+CATEGORIES:Show
+TRANSP:OPAQUE
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:20260919-giostra-fortunia-1430-costume-parade@elfia.nl
+DTSTAMP:20260826T000000Z
+DTSTART;TZID=Europe/Amsterdam:20260919T143000
+DTEND;TZID=Europe/Amsterdam:20260919T163000
+SUMMARY:Costume Parade — Parade
+LOCATION:Giostra Fortunia · Kasteeltuinen Arcen\, Lingsforterweg 26\, 59
+ 44 BE Arcen
+DESCRIPTION:A cosplay competition showcasing creativity and craftsmanship
+ \nStage: Giostra Fortunia\nSaturday 19 September\, 14:30–16:30\nElfia A
+ rcen 2026 — times can change\; check the boards at the stages.
+CATEGORIES:Show
+TRANSP:OPAQUE
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:20260919-giostra-fortunia-1730-laura-lollipop-lulu-chairs@elfia.nl
+DTSTAMP:20260826T000000Z
+DTSTART;TZID=Europe/Amsterdam:20260919T173000
+DTEND;TZID=Europe/Amsterdam:20260919T180000
+SUMMARY:Laura Lollipop + Lulu Chairs — Circus
+LOCATION:Giostra Fortunia · Kasteeltuinen Arcen\, Lingsforterweg 26\, 59
+ 44 BE Arcen
+DESCRIPTION:Stage: Giostra Fortunia\nSaturday 19 September\, 17:30–18:0
+ 0\nElfia Arcen 2026 — times can change\; check the boards at the stages
+ .
+CATEGORIES:Show
+TRANSP:OPAQUE
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:20260919-giostra-fortunia-1845-elfia-temptation@elfia.nl
+DTSTAMP:20260826T000000Z
+DTSTART;TZID=Europe/Amsterdam:20260919T184500
+DTEND;TZID=Europe/Amsterdam:20260919T193000
+SUMMARY:Elfia Temptation — 18+ Show
+LOCATION:Giostra Fortunia · Kasteeltuinen Arcen\, Lingsforterweg 26\, 59
+ 44 BE Arcen
+DESCRIPTION:An elegant 18+ show blending theatrical performances\, costum
+ es\, and artistic expression\nStage: Giostra Fortunia\nSaturday 19 Septem
+ ber\, 18:45–19:30\nElfia Arcen 2026 — times can change\; check the bo
+ ards at the stages.
+CATEGORIES:Show
+TRANSP:OPAQUE
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:20260919-giostra-fortunia-2030-mirror-mirror-on-the-ball@elfia.nl
+DTSTAMP:20260826T000000Z
+DTSTART;TZID=Europe/Amsterdam:20260919T203000
+DTEND;TZID=Europe/Amsterdam:20260919T220000
+SUMMARY:Mirror\, Mirror on the Ball — Ball
+LOCATION:Giostra Fortunia · Kasteeltuinen Arcen\, Lingsforterweg 26\, 59
+ 44 BE Arcen
+DESCRIPTION:An enchanting fantasy ball of dancing\, music\, and storybook
+  magic\nStage: Giostra Fortunia\nSaturday 19 September\, 20:30–22:00\nE
+ lfia Arcen 2026 — times can change\; check the boards at the stages.
+CATEGORIES:Show
+TRANSP:OPAQUE
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:20260919-folk-faire-1100-balfolk-workshop-beginner@elfia.nl
+DTSTAMP:20260826T000000Z
+DTSTART;TZID=Europe/Amsterdam:20260919T110000
+DTEND;TZID=Europe/Amsterdam:20260919T120000
+SUMMARY:Balfolk Workshop-Beginner — Workshop
+LOCATION:Folk Faire · Kasteeltuinen Arcen\, Lingsforterweg 26\, 5944 BE 
+ Arcen
+DESCRIPTION:Stage: Folk Faire\nSaturday 19 September\, 11:00–12:00\nElf
+ ia Arcen 2026 — times can change\; check the boards at the stages.
+CATEGORIES:Workshop
+TRANSP:OPAQUE
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:20260919-folk-faire-1200-airboxes@elfia.nl
+DTSTAMP:20260826T000000Z
+DTSTART;TZID=Europe/Amsterdam:20260919T120000
+DTEND;TZID=Europe/Amsterdam:20260919T133000
+SUMMARY:Airboxes — Folk · Accordion
+LOCATION:Folk Faire · Kasteeltuinen Arcen\, Lingsforterweg 26\, 5944 BE 
+ Arcen
+DESCRIPTION:An accordion duo blending acoustic tradition with innovative 
+ contemporary folk\nStage: Folk Faire\nSaturday 19 September\, 12:00–13:
+ 30\nElfia Arcen 2026 — times can change\; check the boards at the stage
+ s.
+CATEGORIES:Music
+TRANSP:OPAQUE
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:20260919-folk-faire-1400-balforia@elfia.nl
+DTSTAMP:20260826T000000Z
+DTSTART;TZID=Europe/Amsterdam:20260919T140000
+DTEND;TZID=Europe/Amsterdam:20260919T153000
+SUMMARY:Balforia — Nordic Balfolk
+LOCATION:Folk Faire · Kasteeltuinen Arcen\, Lingsforterweg 26\, 5944 BE 
+ Arcen
+DESCRIPTION:A balfolk band blending Scandinavian folk traditions with tra
+ nce-like melodies and fairytale magic\nStage: Folk Faire\nSaturday 19 Sep
+ tember\, 14:00–15:30\nElfia Arcen 2026 — times can change\; check the
+  boards at the stages.
+CATEGORIES:Music
+TRANSP:OPAQUE
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:20260919-folk-faire-1530-balfolk-workshop-advanced@elfia.nl
+DTSTAMP:20260826T000000Z
+DTSTART;TZID=Europe/Amsterdam:20260919T153000
+DTEND;TZID=Europe/Amsterdam:20260919T163000
+SUMMARY:Balfolk Workshop-Advanced — Workshop
+LOCATION:Folk Faire · Kasteeltuinen Arcen\, Lingsforterweg 26\, 5944 BE 
+ Arcen
+DESCRIPTION:Stage: Folk Faire\nSaturday 19 September\, 15:30–16:30\nElf
+ ia Arcen 2026 — times can change\; check the boards at the stages.
+CATEGORIES:Workshop
+TRANSP:OPAQUE
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:20260919-folk-faire-1830-celtic-constellation@elfia.nl
+DTSTAMP:20260826T000000Z
+DTSTART;TZID=Europe/Amsterdam:20260919T183000
+DTEND;TZID=Europe/Amsterdam:20260919T200000
+SUMMARY:Celtic Constellation — Celtic Folk
+LOCATION:Folk Faire · Kasteeltuinen Arcen\, Lingsforterweg 26\, 5944 BE 
+ Arcen
+DESCRIPTION:A balfolk band blending Celtic\, Nordic\, and world folk into
+  energetic dance music\nStage: Folk Faire\nSaturday 19 September\, 18:30
+ –20:00\nElfia Arcen 2026 — times can change\; check the boards at the
+  stages.
+CATEGORIES:Music
+TRANSP:OPAQUE
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:20260919-folk-faire-2030-electrad@elfia.nl
+DTSTAMP:20260826T000000Z
+DTSTART;TZID=Europe/Amsterdam:20260919T203000
+DTEND;TZID=Europe/Amsterdam:20260919T220000
+SUMMARY:Electrad — Electro-Folk
+LOCATION:Folk Faire · Kasteeltuinen Arcen\, Lingsforterweg 26\, 5944 BE 
+ Arcen
+DESCRIPTION:A duo blending Breton folk traditions with immersive electron
+ ic soundscapes\nStage: Folk Faire\nSaturday 19 September\, 20:30–22:00\
+ nElfia Arcen 2026 — times can change\; check the boards at the stages.
+CATEGORIES:Music
+TRANSP:OPAQUE
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:20260919-music-court-1100-merulsa@elfia.nl
+DTSTAMP:20260826T000000Z
+DTSTART;TZID=Europe/Amsterdam:20260919T110000
+DTEND;TZID=Europe/Amsterdam:20260919T123000
+SUMMARY:Merulsa — Folk
+LOCATION:Music Court · Kasteeltuinen Arcen\, Lingsforterweg 26\, 5944 BE
+  Arcen
+DESCRIPTION:A folk project led by Merel Bakker\, blending soulful vocals 
+ and enchanting melodies\nStage: Music Court\nSaturday 19 September\, 11:0
+ 0–12:30\nElfia Arcen 2026 — times can change\; check the boards at th
+ e stages.
+CATEGORIES:Music
+TRANSP:OPAQUE
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:20260919-music-court-1315-zniwa@elfia.nl
+DTSTAMP:20260826T000000Z
+DTSTART;TZID=Europe/Amsterdam:20260919T131500
+DTEND;TZID=Europe/Amsterdam:20260919T144500
+SUMMARY:Żniwa — Pagan Folk
+LOCATION:Music Court · Kasteeltuinen Arcen\, Lingsforterweg 26\, 5944 BE
+  Arcen
+DESCRIPTION:A pagan folk duo blending Celtic\, Slavic\, and Nordic tradit
+ ions with ancient acoustic instruments\nStage: Music Court\nSaturday 19 S
+ eptember\, 13:15–14:45\nElfia Arcen 2026 — times can change\; check t
+ he boards at the stages.
+CATEGORIES:Music
+TRANSP:OPAQUE
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:20260919-music-court-1530-compagnia-la-giostra@elfia.nl
+DTSTAMP:20260826T000000Z
+DTSTART;TZID=Europe/Amsterdam:20260919T153000
+DTEND;TZID=Europe/Amsterdam:20260919T170000
+SUMMARY:Compagnia La Giostra — Mediterranean Folk
+LOCATION:Music Court · Kasteeltuinen Arcen\, Lingsforterweg 26\, 5944 BE
+  Arcen
+DESCRIPTION:A Sicilian folk band blending medieval roots with Mediterrane
+ an and global rhythms\nStage: Music Court\nSaturday 19 September\, 15:30
+ –17:00\nElfia Arcen 2026 — times can change\; check the boards at the
+  stages.
+CATEGORIES:Music
+TRANSP:OPAQUE
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:20260919-music-court-1800-patty-gurdy@elfia.nl
+DTSTAMP:20260826T000000Z
+DTSTART;TZID=Europe/Amsterdam:20260919T180000
+DTEND;TZID=Europe/Amsterdam:20260919T193000
+SUMMARY:Patty Gurdy — Celtic Pop
+LOCATION:Music Court · Kasteeltuinen Arcen\, Lingsforterweg 26\, 5944 BE
+  Arcen
+DESCRIPTION:A German singer-songwriter blending Celtic pop with medieval-
+ inspired sounds and hurdy-gurdy\nStage: Music Court\nSaturday 19 Septembe
+ r\, 18:00–19:30\nElfia Arcen 2026 — times can change\; check the boar
+ ds at the stages.
+CATEGORIES:Music
+TRANSP:OPAQUE
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:20260919-music-court-2030-greenlads@elfia.nl
+DTSTAMP:20260826T000000Z
+DTSTART;TZID=Europe/Amsterdam:20260919T203000
+DTEND;TZID=Europe/Amsterdam:20260919T220000
+SUMMARY:GreenLads — Celtic Folk-Rock
+LOCATION:Music Court · Kasteeltuinen Arcen\, Lingsforterweg 26\, 5944 BE
+  Arcen
+DESCRIPTION:A Celtic folk band blending Irish traditions with energetic e
+ lectro rhythms\nStage: Music Court\nSaturday 19 September\, 20:30–22:00
+ \nElfia Arcen 2026 — times can change\; check the boards at the stages.
+CATEGORIES:Music
+TRANSP:OPAQUE
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:20260919-bard-s-theater-1100-sign-up-preparation-for-bards-d20-advent
+ @elfia.nl
+DTSTAMP:20260826T000000Z
+DTSTART;TZID=Europe/Amsterdam:20260919T110000
+DTEND;TZID=Europe/Amsterdam:20260919T120000
+SUMMARY:Sign-Up + Preparation for Bard’s D20 Adventures — Sign-up
+LOCATION:Bard's Theater · Kasteeltuinen Arcen\, Lingsforterweg 26\, 5944
+  BE Arcen
+DESCRIPTION:Stage: Bard's Theater\nSaturday 19 September\, 11:00–12:00\
+ nElfia Arcen 2026 — times can change\; check the boards at the stages.
+CATEGORIES:Workshop
+TRANSP:OPAQUE
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:20260919-bard-s-theater-1200-bards-d20-adventures-with-the-trouble-no
+ @elfia.nl
+DTSTAMP:20260826T000000Z
+DTSTART;TZID=Europe/Amsterdam:20260919T120000
+DTEND;TZID=Europe/Amsterdam:20260919T133000
+SUMMARY:Bard’s D20 Adventures\, with The Trouble Notes — Game
+LOCATION:Bard's Theater · Kasteeltuinen Arcen\, Lingsforterweg 26\, 5944
+  BE Arcen
+DESCRIPTION:Stage: Bard's Theater\nSaturday 19 September\, 12:00–13:30\
+ nElfia Arcen 2026 — times can change\; check the boards at the stages.
+CATEGORIES:Workshop
+TRANSP:OPAQUE
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:20260919-bard-s-theater-1430-elf-ecstatic-dance-with-the-trouble-note
+ @elfia.nl
+DTSTAMP:20260826T000000Z
+DTSTART;TZID=Europe/Amsterdam:20260919T143000
+DTEND;TZID=Europe/Amsterdam:20260919T153000
+SUMMARY:Elf-Ecstatic Dance with The Trouble Notes — Dance
+LOCATION:Bard's Theater · Kasteeltuinen Arcen\, Lingsforterweg 26\, 5944
+  BE Arcen
+DESCRIPTION:Stage: Bard's Theater\nSaturday 19 September\, 14:30–15:30\
+ nElfia Arcen 2026 — times can change\; check the boards at the stages.
+CATEGORIES:Workshop
+TRANSP:OPAQUE
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:20260919-bard-s-theater-1530-sign-up-for-bardeoke@elfia.nl
+DTSTAMP:20260826T000000Z
+DTSTART;TZID=Europe/Amsterdam:20260919T153000
+DTEND;TZID=Europe/Amsterdam:20260919T163000
+SUMMARY:Sign-Up for Bardeoke — Sign-up
+LOCATION:Bard's Theater · Kasteeltuinen Arcen\, Lingsforterweg 26\, 5944
+  BE Arcen
+DESCRIPTION:Stage: Bard's Theater\nSaturday 19 September\, 15:30–16:30\
+ nElfia Arcen 2026 — times can change\; check the boards at the stages.
+CATEGORIES:Workshop
+TRANSP:OPAQUE
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:20260919-bard-s-theater-1730-bardeoke-the-trouble-notes-x-zniwa@elfia
+ .nl
+DTSTAMP:20260826T000000Z
+DTSTART;TZID=Europe/Amsterdam:20260919T173000
+DTEND;TZID=Europe/Amsterdam:20260919T183000
+SUMMARY:Bardeoke The Trouble Notes x Żniwa — Folk Jam
+LOCATION:Bard's Theater · Kasteeltuinen Arcen\, Lingsforterweg 26\, 5944
+  BE Arcen
+DESCRIPTION:Stage: Bard's Theater\nSaturday 19 September\, 17:30–18:30\
+ nElfia Arcen 2026 — times can change\; check the boards at the stages.
+CATEGORIES:Music
+TRANSP:OPAQUE
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:20260919-bard-s-theater-1900-zniwas-bardic-harvest-music-jam-dance@el
+ fia.nl
+DTSTAMP:20260826T000000Z
+DTSTART;TZID=Europe/Amsterdam:20260919T190000
+DTEND;TZID=Europe/Amsterdam:20260919T200000
+SUMMARY:Żniwa’s Bardic Harvest: Music\, Jam & Dance — Folk Jam
+LOCATION:Bard's Theater · Kasteeltuinen Arcen\, Lingsforterweg 26\, 5944
+  BE Arcen
+DESCRIPTION:Stage: Bard's Theater\nSaturday 19 September\, 19:00–20:00\
+ nElfia Arcen 2026 — times can change\; check the boards at the stages.
+CATEGORIES:Music
+TRANSP:OPAQUE
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:20260920-giostra-fortunia-1100-salem-dee-story-of-elfia@elfia.nl
+DTSTAMP:20260826T000000Z
+DTSTART;TZID=Europe/Amsterdam:20260920T110000
+DTEND;TZID=Europe/Amsterdam:20260920T113000
+SUMMARY:Salem Dee-Story Of Elfia — Circus
+LOCATION:Giostra Fortunia · Kasteeltuinen Arcen\, Lingsforterweg 26\, 59
+ 44 BE Arcen
+DESCRIPTION:Stage: Giostra Fortunia\nSunday 20 September\, 11:00–11:30\
+ nElfia Arcen 2026 — times can change\; check the boards at the stages.
+CATEGORIES:Show
+TRANSP:OPAQUE
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:20260920-giostra-fortunia-1200-leo-garbo-flora-gattina@elfia.nl
+DTSTAMP:20260826T000000Z
+DTSTART;TZID=Europe/Amsterdam:20260920T120000
+DTEND;TZID=Europe/Amsterdam:20260920T123000
+SUMMARY:Leo Garbo + Flora Gattina — Circus
+LOCATION:Giostra Fortunia · Kasteeltuinen Arcen\, Lingsforterweg 26\, 59
+ 44 BE Arcen
+DESCRIPTION:Stage: Giostra Fortunia\nSunday 20 September\, 12:00–12:30\
+ nElfia Arcen 2026 — times can change\; check the boards at the stages.
+CATEGORIES:Show
+TRANSP:OPAQUE
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:20260920-giostra-fortunia-1315-champaigne-glass-duo-fabius-the-jester
+ @elfia.nl
+DTSTAMP:20260826T000000Z
+DTSTART;TZID=Europe/Amsterdam:20260920T131500
+DTEND;TZID=Europe/Amsterdam:20260920T140000
+SUMMARY:Champaigne Glass Duo + Fabius The Jester — Circus
+LOCATION:Giostra Fortunia · Kasteeltuinen Arcen\, Lingsforterweg 26\, 59
+ 44 BE Arcen
+DESCRIPTION:Stage: Giostra Fortunia\nSunday 20 September\, 13:15–14:00\
+ nElfia Arcen 2026 — times can change\; check the boards at the stages.
+CATEGORIES:Show
+TRANSP:OPAQUE
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:20260920-giostra-fortunia-1500-cosplay-catwalk@elfia.nl
+DTSTAMP:20260826T000000Z
+DTSTART;TZID=Europe/Amsterdam:20260920T150000
+DTEND;TZID=Europe/Amsterdam:20260920T160000
+SUMMARY:Cosplay Catwalk — Parade
+LOCATION:Giostra Fortunia · Kasteeltuinen Arcen\, Lingsforterweg 26\, 59
+ 44 BE Arcen
+DESCRIPTION:Stage: Giostra Fortunia\nSunday 20 September\, 15:00–16:00\
+ nElfia Arcen 2026 — times can change\; check the boards at the stages.
+CATEGORIES:Show
+TRANSP:OPAQUE
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:20260920-giostra-fortunia-1630-chairs-acro-shine-your-light-flowmies@
+ elfia.nl
+DTSTAMP:20260826T000000Z
+DTSTART;TZID=Europe/Amsterdam:20260920T163000
+DTEND;TZID=Europe/Amsterdam:20260920T170000
+SUMMARY:Chairs Acro + "Shine Your Light" FlowMies — Circus
+LOCATION:Giostra Fortunia · Kasteeltuinen Arcen\, Lingsforterweg 26\, 59
+ 44 BE Arcen
+DESCRIPTION:Stage: Giostra Fortunia\nSunday 20 September\, 16:30–17:00\
+ nElfia Arcen 2026 — times can change\; check the boards at the stages.
+CATEGORIES:Show
+TRANSP:OPAQUE
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:20260920-giostra-fortunia-1800-fabius-the-jester-lisa-chudalla@elfia.
+ nl
+DTSTAMP:20260826T000000Z
+DTSTART;TZID=Europe/Amsterdam:20260920T180000
+DTEND;TZID=Europe/Amsterdam:20260920T184500
+SUMMARY:Fabius The Jester + Lisa Chudalla — Circus
+LOCATION:Giostra Fortunia · Kasteeltuinen Arcen\, Lingsforterweg 26\, 59
+ 44 BE Arcen
+DESCRIPTION:A circus duo blending comedy\, aerial acrobatics\, sword swal
+ lowing\, and fire performance\nStage: Giostra Fortunia\nSunday 20 Septemb
+ er\, 18:00–18:45\nElfia Arcen 2026 — times can change\; check the boa
+ rds at the stages.
+CATEGORIES:Show
+TRANSP:OPAQUE
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:20260920-folk-faire-1100-balfolk-workshop-beginner@elfia.nl
+DTSTAMP:20260826T000000Z
+DTSTART;TZID=Europe/Amsterdam:20260920T110000
+DTEND;TZID=Europe/Amsterdam:20260920T120000
+SUMMARY:Balfolk Workshop-Beginner — Workshop
+LOCATION:Folk Faire · Kasteeltuinen Arcen\, Lingsforterweg 26\, 5944 BE 
+ Arcen
+DESCRIPTION:Stage: Folk Faire\nSunday 20 September\, 11:00–12:00\nElfia
+  Arcen 2026 — times can change\; check the boards at the stages.
+CATEGORIES:Workshop
+TRANSP:OPAQUE
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:20260920-folk-faire-1200-balforia@elfia.nl
+DTSTAMP:20260826T000000Z
+DTSTART;TZID=Europe/Amsterdam:20260920T120000
+DTEND;TZID=Europe/Amsterdam:20260920T133000
+SUMMARY:Balforia — Nordic Balfolk
+LOCATION:Folk Faire · Kasteeltuinen Arcen\, Lingsforterweg 26\, 5944 BE 
+ Arcen
+DESCRIPTION:A balfolk band blending Scandinavian folk traditions with tra
+ nce-like melodies and fairytale magic\nStage: Folk Faire\nSunday 20 Septe
+ mber\, 12:00–13:30\nElfia Arcen 2026 — times can change\; check the b
+ oards at the stages.
+CATEGORIES:Music
+TRANSP:OPAQUE
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:20260920-folk-faire-1400-celtic-constellation@elfia.nl
+DTSTAMP:20260826T000000Z
+DTSTART;TZID=Europe/Amsterdam:20260920T140000
+DTEND;TZID=Europe/Amsterdam:20260920T153000
+SUMMARY:Celtic Constellation — Celtic Folk
+LOCATION:Folk Faire · Kasteeltuinen Arcen\, Lingsforterweg 26\, 5944 BE 
+ Arcen
+DESCRIPTION:A balfolk band blending Celtic\, Nordic\, and world folk into
+  energetic dance music\nStage: Folk Faire\nSunday 20 September\, 14:00–
+ 15:30\nElfia Arcen 2026 — times can change\; check the boards at the st
+ ages.
+CATEGORIES:Music
+TRANSP:OPAQUE
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:20260920-folk-faire-1600-balfolk-workshop-advanced@elfia.nl
+DTSTAMP:20260826T000000Z
+DTSTART;TZID=Europe/Amsterdam:20260920T160000
+DTEND;TZID=Europe/Amsterdam:20260920T170000
+SUMMARY:Balfolk Workshop-Advanced — Workshop
+LOCATION:Folk Faire · Kasteeltuinen Arcen\, Lingsforterweg 26\, 5944 BE 
+ Arcen
+DESCRIPTION:Stage: Folk Faire\nSunday 20 September\, 16:00–17:00\nElfia
+  Arcen 2026 — times can change\; check the boards at the stages.
+CATEGORIES:Workshop
+TRANSP:OPAQUE
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:20260920-folk-faire-1700-electrad@elfia.nl
+DTSTAMP:20260826T000000Z
+DTSTART;TZID=Europe/Amsterdam:20260920T170000
+DTEND;TZID=Europe/Amsterdam:20260920T183000
+SUMMARY:Electrad — Electro-Folk
+LOCATION:Folk Faire · Kasteeltuinen Arcen\, Lingsforterweg 26\, 5944 BE 
+ Arcen
+DESCRIPTION:A duo blending Breton folk traditions with immersive electron
+ ic soundscapes\nStage: Folk Faire\nSunday 20 September\, 17:00–18:30\nE
+ lfia Arcen 2026 — times can change\; check the boards at the stages.
+CATEGORIES:Music
+TRANSP:OPAQUE
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:20260920-music-court-1100-idun-s-apple@elfia.nl
+DTSTAMP:20260826T000000Z
+DTSTART;TZID=Europe/Amsterdam:20260920T110000
+DTEND;TZID=Europe/Amsterdam:20260920T123000
+SUMMARY:Idun's Apple — Celtic & Nordic Folk
+LOCATION:Music Court · Kasteeltuinen Arcen\, Lingsforterweg 26\, 5944 BE
+  Arcen
+DESCRIPTION:A four-woman ensemble blending Celtic and Nordic folk with ha
+ unting harmonies and historical instruments\nStage: Music Court\nSunday 2
+ 0 September\, 11:00–12:30\nElfia Arcen 2026 — times can change\; chec
+ k the boards at the stages.
+CATEGORIES:Music
+TRANSP:OPAQUE
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:20260920-music-court-1315-tribubu@elfia.nl
+DTSTAMP:20260826T000000Z
+DTSTART;TZID=Europe/Amsterdam:20260920T131500
+DTEND;TZID=Europe/Amsterdam:20260920T144500
+SUMMARY:Tribubu — World Music
+LOCATION:Music Court · Kasteeltuinen Arcen\, Lingsforterweg 26\, 5944 BE
+  Arcen
+DESCRIPTION:A world music band blending African rhythms\, rumba\, folk\, 
+ and blues into vibrant live performances\nStage: Music Court\nSunday 20 S
+ eptember\, 13:15–14:45\nElfia Arcen 2026 — times can change\; check t
+ he boards at the stages.
+CATEGORIES:Music
+TRANSP:OPAQUE
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:20260920-music-court-1530-folkulaka@elfia.nl
+DTSTAMP:20260826T000000Z
+DTSTART;TZID=Europe/Amsterdam:20260920T153000
+DTEND;TZID=Europe/Amsterdam:20260920T170000
+SUMMARY:Folkulaka — Dark Folk
+LOCATION:Music Court · Kasteeltuinen Arcen\, Lingsforterweg 26\, 5944 BE
+  Arcen
+DESCRIPTION:A Ukrainian dark-folk band blending folklore\, demonology\, s
+ torytelling\, and ironic humour\nStage: Music Court\nSunday 20 September\
+ , 15:30–17:00\nElfia Arcen 2026 — times can change\; check the boards
+  at the stages.
+CATEGORIES:Music
+TRANSP:OPAQUE
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:20260920-music-court-1730-the-trouble-notes@elfia.nl
+DTSTAMP:20260826T000000Z
+DTSTART;TZID=Europe/Amsterdam:20260920T173000
+DTEND;TZID=Europe/Amsterdam:20260920T190000
+SUMMARY:The Trouble Notes — World-Folk
+LOCATION:Music Court · Kasteeltuinen Arcen\, Lingsforterweg 26\, 5944 BE
+  Arcen
+DESCRIPTION:A progressive world-folk trio blending global influences\, dr
+ iving rhythms\, and explosive live energy\nStage: Music Court\nSunday 20 
+ September\, 17:30–19:00\nElfia Arcen 2026 — times can change\; check 
+ the boards at the stages.
+CATEGORIES:Music
+TRANSP:OPAQUE
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:20260920-bard-s-theater-1030-sign-up-for-bards-tavern-games@elfia.nl
+DTSTAMP:20260826T000000Z
+DTSTART;TZID=Europe/Amsterdam:20260920T103000
+DTEND;TZID=Europe/Amsterdam:20260920T113000
+SUMMARY:Sign-Up for Bard’s Tavern Games — Sign-up
+LOCATION:Bard's Theater · Kasteeltuinen Arcen\, Lingsforterweg 26\, 5944
+  BE Arcen
+DESCRIPTION:Stage: Bard's Theater\nSunday 20 September\, 10:30–11:30\nE
+ lfia Arcen 2026 — times can change\; check the boards at the stages.
+CATEGORIES:Workshop
+TRANSP:OPAQUE
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:20260920-bard-s-theater-1130-bards-tavern-games-with-the-trouble-note
+ @elfia.nl
+DTSTAMP:20260826T000000Z
+DTSTART;TZID=Europe/Amsterdam:20260920T113000
+DTEND;TZID=Europe/Amsterdam:20260920T130000
+SUMMARY:Bard’s Tavern Games with The Trouble Notes — Game
+LOCATION:Bard's Theater · Kasteeltuinen Arcen\, Lingsforterweg 26\, 5944
+  BE Arcen
+DESCRIPTION:Stage: Bard's Theater\nSunday 20 September\, 11:30–13:00\nE
+ lfia Arcen 2026 — times can change\; check the boards at the stages.
+CATEGORIES:Workshop
+TRANSP:OPAQUE
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:20260920-bard-s-theater-1300-sign-up-for-bardeoke@elfia.nl
+DTSTAMP:20260826T000000Z
+DTSTART;TZID=Europe/Amsterdam:20260920T130000
+DTEND;TZID=Europe/Amsterdam:20260920T140000
+SUMMARY:Sign Up for Bardeoke — Sign-up
+LOCATION:Bard's Theater · Kasteeltuinen Arcen\, Lingsforterweg 26\, 5944
+  BE Arcen
+DESCRIPTION:Stage: Bard's Theater\nSunday 20 September\, 13:00–14:00\nE
+ lfia Arcen 2026 — times can change\; check the boards at the stages.
+CATEGORIES:Workshop
+TRANSP:OPAQUE
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:20260920-bard-s-theater-1400-bardeoke-with-the-trouble-notes-x-tribub
+ @elfia.nl
+DTSTAMP:20260826T000000Z
+DTSTART;TZID=Europe/Amsterdam:20260920T140000
+DTEND;TZID=Europe/Amsterdam:20260920T153000
+SUMMARY:Bardeoke with The Trouble Notes x Tribubu — Folk Jam
+LOCATION:Bard's Theater · Kasteeltuinen Arcen\, Lingsforterweg 26\, 5944
+  BE Arcen
+DESCRIPTION:Stage: Bard's Theater\nSunday 20 September\, 14:00–15:30\nE
+ lfia Arcen 2026 — times can change\; check the boards at the stages.
+CATEGORIES:Music
+TRANSP:OPAQUE
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:20260920-bard-s-theater-1630-compagnia-la-giostra@elfia.nl
+DTSTAMP:20260826T000000Z
+DTSTART;TZID=Europe/Amsterdam:20260920T163000
+DTEND;TZID=Europe/Amsterdam:20260920T180000
+SUMMARY:Compagnia La Giostra — Mediterranean Folk
+LOCATION:Bard's Theater · Kasteeltuinen Arcen\, Lingsforterweg 26\, 5944
+  BE Arcen
+DESCRIPTION:Stage: Bard's Theater\nSunday 20 September\, 16:30–18:00\nE
+ lfia Arcen 2026 — times can change\; check the boards at the stages.
+CATEGORIES:Music
+TRANSP:OPAQUE
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:20260920-academy-hall-1200-trine-the-secrets-behind-armour-making@elf
+ ia.nl
+DTSTAMP:20260826T000000Z
+DTSTART;TZID=Europe/Amsterdam:20260920T120000
+DTEND;TZID=Europe/Amsterdam:20260920T124500
+SUMMARY:Trine -The Secrets Behind Armour Making — Talk
+LOCATION:Academy Hall · Kasteeltuinen Arcen\, Lingsforterweg 26\, 5944 B
+ E Arcen
+DESCRIPTION:Stage: Academy Hall\nSunday 20 September\, 12:00–12:45\nElf
+ ia Arcen 2026 — times can change\; check the boards at the stages.
+CATEGORIES:Workshop
+TRANSP:OPAQUE
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:20260920-academy-hall-1400-amsterdam-burlesque-how-to-pose-and-bein@e
+ lfia.nl
+DTSTAMP:20260826T000000Z
+DTSTART;TZID=Europe/Amsterdam:20260920T140000
+DTEND;TZID=Europe/Amsterdam:20260920T150000
+SUMMARY:Amsterdam Burlesque - How to pose and being confident in front of
+  Cameras — Workshop
+LOCATION:Academy Hall · Kasteeltuinen Arcen\, Lingsforterweg 26\, 5944 B
+ E Arcen
+DESCRIPTION:Stage: Academy Hall\nSunday 20 September\, 14:00–15:00\nElf
+ ia Arcen 2026 — times can change\; check the boards at the stages.
+CATEGORIES:Workshop
+TRANSP:OPAQUE
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:20260920-academy-hall-1530-the-art-of-transformative-makeup-giuliom@e
+ lfia.nl
+DTSTAMP:20260826T000000Z
+DTSTART;TZID=Europe/Amsterdam:20260920T153000
+DTEND;TZID=Europe/Amsterdam:20260920T163000
+SUMMARY:The Art of Transformative Makeup - GiulioMugs — Workshop
+LOCATION:Academy Hall · Kasteeltuinen Arcen\, Lingsforterweg 26\, 5944 B
+ E Arcen
+DESCRIPTION:Stage: Academy Hall\nSunday 20 September\, 15:30–16:30\nElf
+ ia Arcen 2026 — times can change\; check the boards at the stages.
+CATEGORIES:Workshop
+TRANSP:OPAQUE
+STATUS:CONFIRMED
+END:VEVENT
+END:VCALENDAR
