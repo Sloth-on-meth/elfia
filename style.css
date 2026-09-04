@@ -268,6 +268,18 @@ body:has(#f-work:checked) .lede .c-work{display:inline}
 .az li em{font-style:normal;color:var(--dim)}
 
 /* food & drink */
+.allergy{border:2px solid var(--red);border-left-width:6px;border-radius:10px;
+  background:color-mix(in srgb,var(--red) 7%,var(--bg2));padding:1.15rem 1.35rem;
+  margin:0 0 1.4rem;box-shadow:var(--shadow)}
+.allergy h2{font-size:clamp(1.2rem,2.4vw,1.5rem);color:var(--red);margin:0 0 .7rem}
+:root[data-theme="dark"] .allergy h2{color:var(--gold2)}
+:root[data-theme="dark"] .allergy{background:color-mix(in srgb,var(--red) 16%,var(--bg2))}
+.allergy ul{margin:0 0 .9rem;padding-left:1.15rem}
+.allergy li{margin-bottom:.45rem;font-size:.92rem;line-height:1.55}
+.allergy strong{color:var(--ink)}
+.allergy-do{margin:0;padding-top:.8rem;border-top:1px solid color-mix(in srgb,var(--red) 35%,transparent);
+  font-size:.95rem}
+
 .catgrid{display:grid;gap:1rem;grid-template-columns:repeat(auto-fill,minmax(16.5rem,1fr))}
 .realmblock{margin-bottom:2.1rem}
 .realmblock:last-of-type{margin-bottom:0}

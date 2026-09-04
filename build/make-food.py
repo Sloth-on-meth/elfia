@@ -92,7 +92,10 @@ def main():
                           f'<div class="catgrid">{"".join(cards)}</div></div>')
 
         page = (ROOT / "build" / "templates" / tpl).read_text(encoding="utf-8")
-        page = (page.replace("<!--FILTER-->", pills)
+        nolabel = sum(1 for x in shops if not x["labels"])
+        page = (page.replace("<!--NSTALLS-->", str(len(shops)))
+                    .replace("<!--NNOLABEL-->", str(nolabel))
+                    .replace("<!--FILTER-->", pills)
                     .replace("<!--COUNTS-->", spans)
                     .replace("<!--CATERERS-->", "".join(blocks)))
         out = ROOT / ("food.html" if lang == "nl" else "en/food.html")

@@ -101,6 +101,13 @@ from their templates. Keep the three copies in sync.
   split on the last parenthetical, keeping short ones (`(All Day)`) as part of the name.
   A diff that ignores this makes every act look replaced.
 - **Genre chips are not in the API.** They are ours, in `lineup-labels.json`. Say so.
+- **The 14-allergen list on `food.html` is not API data either** — it is the legal Annex II
+  list of Regulation 1169/2011. It was first written from memory and only verified later
+  against the [NVWA](https://www.nvwa.nl/onderwerpen/voedselveiligheid/allergenen/over-welke-allergenen-moet-ik-informatie-geven)
+  on 4 Sept 2026: the fourteen items and their order match, as does the rule that oral
+  allergen information is allowed provided the stall states you can ask. The source is now
+  cited on the page. Anything on that page people with an allergy act on needs a citation —
+  do not write it from memory.
 - **Name normalisation folds diacritics.** `Żniwa` and `Zniwa` both appear in the source
   data and must collide, hence `unicodedata.normalize` in every key function.
 - **Nav has 11 entries** and only just fits the 66rem wrap at desktop width; item font and

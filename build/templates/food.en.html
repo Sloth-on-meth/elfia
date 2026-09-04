@@ -20,10 +20,30 @@ function elfiaTheme(){var r=document.documentElement,d=r.dataset.theme==="dark";
 </div></nav>
 <main id="main">
 <header class="page-head"><div class="wrap"><h1>Food &amp; drink</h1><p>Fourteen food stalls spread across the realms, plus the castle gardens' own catering points. Filter by diet, and read what you need to know about allergens.</p><p class="srcnote"><strong>Where does this come from?</strong> This list is taken straight from Elfia’s programme API and reproduced unedited — names, descriptions and grouping are exactly as the organisers supply them. Elfia does not display this data anywhere on their own site, so there is no official page to check it against. It may be incomplete or out of date and can still change before the event. This is not an official Elfia publication.</p></div></header><section style="padding-bottom:0;border:0"><div class="wrap">
+  <aside class="allergy" aria-labelledby="allergy-h">
+   <h2 id="allergy-h">Read this first if you have an allergy</h2>
+   <ul>
+    <li><strong>Where this data comes from.</strong> Elfia supplies at most four dietary labels per
+     stall — vegan, vegetarian, halal and gluten free. We take those unedited from their programme
+     API. The organisers give nothing more, and we add nothing.</li>
+    <li><strong>This is not an allergen declaration.</strong> Of those four, only “gluten free”
+     concerns an allergen. The source says nothing at all about nuts, milk, egg, soy, sesame,
+     crustaceans, celery, mustard, lupin or the rest.</li>
+    <li><strong><!--NNOLABEL--> of the <!--NSTALLS--> stalls carry no label at all.</strong>
+     That does not mean a dish is free of anything — it means Elfia filled nothing in.</li>
+    <li><strong>A label describes the recipe, not the preparation.</strong> Food trucks share
+     fryers, griddles and tongs. This list says nothing about cross-contamination.</li>
+    <li><strong>We are not Elfia and cannot verify any of it.</strong> This is an unofficial
+     hobby rendering of their data, which can change right up to the day itself.</li>
+   </ul>
+   <p class="allergy-do"><strong>So always ask at the stall yourself before you order.</strong>
+    In the Netherlands, anyone selling non-prepacked food must tell you which of the fourteen
+    legal allergens a dish contains. Say how serious your allergy is.
+    <a href="#allergenen">More on allergens ↓</a></p>
+  </aside>
   <div class="filters" role="group" aria-label="Filter by diet">
 <!--FILTER-->
   </div>
-  <p class="note warn"><strong>Allergies:</strong> the labels above are the organisers' dietary indications, not a full allergen declaration. Only “gluten free” concerns an allergen; nuts, milk, egg, soy, sesame and the rest are not covered. <a href="#allergenen">Ask at the stall</a> before you order.</p>
 </div></section><section id="caterers"><div class="wrap">
   <h2>The caterers</h2>
   <p class="lede"><!--COUNTS-->. The descriptions come from the organisers.</p>
@@ -32,10 +52,10 @@ function elfiaTheme(){var r=document.documentElement,d=r.dataset.theme==="dark";
 </div></section><section id="allergenen"><div class="wrap">
   <h2>Allergens</h2>
   <p class="lede">What to do on site if you have an allergy or an intolerance.</p>
-  <div class="grid"><div class="card"><h3>Ask at the stall</h3><p>In the EU, anyone selling non-prepacked food has to be able to tell you which of the fourteen legal allergens a dish contains — verbally is fine, as long as the stall makes clear you can ask. Ask per dish rather than per stall: the same cook often fries several things in the same oil.</p></div><div class="card"><h3>Cross-contamination</h3><p>Food trucks work in a small space with shared fryers, griddles and tongs. “Gluten free” or “vegan” on this list describes the recipe, not a separate preparation area. With a serious allergy that is the difference that matters — say how serious it is.</p></div><div class="card"><h3>Bringing your own food is allowed for this</h3><p>Your own food and drink are normally not permitted, but for medical or dietary reasons — allergies, diabetes and the like — you may bring what you strictly need. Bring a doctor's note; without proof it can still be refused. See the <a href="policy.html#food">visitor policy</a>.</p></div></div>
+  <div class="grid"><div class="card"><h3>Ask at the stall</h3><p>In the EU, anyone selling non-prepacked food has to be able to tell you which of the fourteen legal allergens a dish contains — verbally is fine, as long as the stall makes clear you can ask (NVWA). Ask per dish rather than per stall: the same cook often fries several things in the same oil.</p></div><div class="card"><h3>Cross-contamination</h3><p>Food trucks work in a small space with shared fryers, griddles and tongs. “Gluten free” or “vegan” on this list describes the recipe, not a separate preparation area. With a serious allergy that is the difference that matters — say how serious it is.</p></div><div class="card"><h3>Bringing your own food is allowed for this</h3><p>Your own food and drink are normally not permitted, but for medical or dietary reasons — allergies, diabetes and the like — you may bring what you strictly need. Bring a doctor's note; without proof it can still be refused. See the <a href="policy.html#food">visitor policy</a>.</p></div></div>
   <details style="margin-top:1.15rem"><summary>The fourteen legal allergens</summary><div class="body">
    <ol><li>Cereals containing gluten (wheat, rye, barley, oats, spelt, kamut)</li><li>Crustaceans</li><li>Eggs</li><li>Fish</li><li>Peanuts</li><li>Soybeans</li><li>Milk (including lactose)</li><li>Nuts (almond, hazelnut, walnut, cashew, pecan, Brazil nut, pistachio, macadamia)</li><li>Celery</li><li>Mustard</li><li>Sesame seeds</li><li>Sulphur dioxide and sulphites (above 10 mg/kg or mg/l)</li><li>Lupin</li><li>Molluscs</li></ol>
-   <p>These fourteen are listed in Annex II of EU Regulation 1169/2011 and apply to non-prepacked food at events in the Netherlands too.</p>
+   <p>These fourteen are listed in Annex II of EU Regulation 1169/2011 and apply to non-prepacked food at events in the Netherlands too. The list and its order were checked against the Dutch food authority, <a href="https://www.nvwa.nl/onderwerpen/voedselveiligheid/allergenen/over-welke-allergenen-moet-ik-informatie-geven" rel="noopener">NVWA</a> (4 September 2026), which is also the body that enforces it.</p>
   </div></details>
 </div></section><section id="horeca"><div class="wrap">
   <h2>The castle gardens' own catering points</h2>

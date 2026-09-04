@@ -20,6 +20,27 @@ function elfiaTheme(){var r=document.documentElement,d=r.dataset.theme==="dark";
 </div></nav>
 <main id="main">
 <header class="page-head"><div class="wrap"><h1>Eten &amp; drinken</h1><p>Veertien eetkramen verspreid over de rijken, plus de vaste horeca van de kasteeltuinen. Filter op dieet en lees wat je over allergenen moet weten.</p><p class="srcnote"><strong>Waar komt dit vandaan?</strong> Deze lijst komt rechtstreeks uit de programma-API van Elfia en is ongeredigeerd overgenomen — namen, omschrijvingen en indeling zijn precies zoals de organisatie ze aanlevert. Elfia toont deze gegevens zelf nergens op de site, dus er is geen officiële pagina om het tegen te controleren. Het kan onvolledig of verouderd zijn en tot aan het evenement nog wijzigen. Dit is geen officiële uitgave van Elfia.</p></div></header><section style="padding-bottom:0;border:0"><div class="wrap">
+  <aside class="allergy" aria-labelledby="allergy-h">
+   <h2 id="allergy-h">Lees dit eerst als je een allergie hebt</h2>
+   <ul>
+    <li><strong>Waar deze gegevens vandaan komen.</strong> Elfia levert per kraam hooguit vier
+     dieetlabels aan — vegan, vegetarisch, halal en glutenvrij. Die halen wij ongeredigeerd uit
+     hun programma-API. Meer geeft de organisatie niet, en wij voegen niets toe.</li>
+    <li><strong>Dit is geen allergenenverklaring.</strong> Van die vier is alleen “glutenvrij” een
+     allergeen. Over noten, melk, ei, soja, sesam, schaaldieren, selderij, mosterd, lupine en de
+     rest staat in de bron helemaal niets.</li>
+    <li><strong>7 van de 19 kramen hebben géén enkel label.</strong>
+     Dat betekent niet dat er niets in zit — het betekent dat Elfia niets heeft ingevuld.</li>
+    <li><strong>Een label gaat over het recept, niet over de bereiding.</strong> Foodtrucks delen
+     friteuses, bakplaten en tangen. Over kruisbesmetting zegt deze lijst niets.</li>
+    <li><strong>Wij zijn Elfia niet en kunnen niets controleren.</strong> Deze site is een
+     onofficiële hobbyproject-weergave van hun data, die tot op de dag zelf kan wijzigen.</li>
+   </ul>
+   <p class="allergy-do"><strong>Vraag het dus altijd zelf bij de kraam voordat je bestelt.</strong>
+    Verkopers van onverpakt eten zijn in Nederland verplicht je te vertellen welke van de veertien
+    wettelijke allergenen in een gerecht zitten. Zeg erbij hoe ernstig je allergie is.
+    <a href="#allergenen">Meer over allergenen ↓</a></p>
+  </aside>
   <div class="filters" role="group" aria-label="Filter op dieet">
    <input type="radio" name="diet" id="d-all" checked><label for="d-all">Alles <b>19</b></label>
    <input type="radio" name="diet" id="d-vegan"><label for="d-vegan">Vegan <b>11</b></label>
@@ -27,7 +48,6 @@ function elfiaTheme(){var r=document.documentElement,d=r.dataset.theme==="dark";
    <input type="radio" name="diet" id="d-halal"><label for="d-halal">Halal <b>8</b></label>
    <input type="radio" name="diet" id="d-gf"><label for="d-gf">Glutenvrij <b>7</b></label>
   </div>
-  <p class="note warn"><strong>Allergieën:</strong> de labels hierboven zijn de dieetaanduidingen van de organisatie, geen volledige allergenenverklaring. Alleen “glutenvrij” gaat over een allergeen; noten, melk, ei, soja, sesam en de rest staan er niet in. <a href="#allergenen">Vraag het bij de kraam</a> voordat je bestelt.</p>
 </div></section><section id="caterers"><div class="wrap">
   <h2>De caterers</h2>
   <p class="lede"><span class="c c-d-all">19 eetkramen in 5 rijken</span><span class="c c-d-vegan">11 met veganistische opties</span><span class="c c-d-veg">11 met vegetarische opties</span><span class="c c-d-halal">8 met halal opties</span><span class="c c-d-gf">7 met glutenvrije opties</span>. De omschrijvingen komen van de organisatie.</p>
@@ -36,10 +56,10 @@ function elfiaTheme(){var r=document.documentElement,d=r.dataset.theme==="dark";
 </div></section><section id="allergenen"><div class="wrap">
   <h2>Allergenen</h2>
   <p class="lede">Wat je op het terrein zelf moet doen als je een allergie of intolerantie hebt.</p>
-  <div class="grid"><div class="card"><h3>Vraag het bij de kraam</h3><p>Verkopers van onverpakt eten moeten je in de EU kunnen vertellen welke van de veertien wettelijke allergenen in een gerecht zitten — mondeling mag, als bij de kraam duidelijk is dat je ernaar kunt vragen. Vraag het per gerecht, niet per kraam: dezelfde kok bakt vaak meerdere dingen in hetzelfde vet.</p></div><div class="card"><h3>Kruisbesmetting</h3><p>Foodtrucks werken in een kleine ruimte met gedeelde friteuses, bakplaten en tangen. “Glutenvrij” of “vegan” op deze lijst zegt iets over het recept, niet over een gescheiden bereiding. Bij een ernstige allergie is dat het verschil dat telt — zeg erbij hoe ernstig het is.</p></div><div class="card"><h3>Eigen eten meenemen mag dan wél</h3><p>Eigen eten en drinken zijn normaal niet toegestaan, maar voor medische of dieetredenen — allergieën, diabetes en dergelijke — mag je meenemen wat je strikt nodig hebt. Neem een doktersverklaring mee; zonder bewijs kan het alsnog geweigerd worden. Zie de <a href="policy.html#food">huisregels</a>.</p></div></div>
+  <div class="grid"><div class="card"><h3>Vraag het bij de kraam</h3><p>Verkopers van onverpakt eten moeten je in de EU kunnen vertellen welke van de veertien wettelijke allergenen in een gerecht zitten — mondeling mag, als bij de kraam duidelijk is dat je ernaar kunt vragen (NVWA). Vraag het per gerecht, niet per kraam: dezelfde kok bakt vaak meerdere dingen in hetzelfde vet.</p></div><div class="card"><h3>Kruisbesmetting</h3><p>Foodtrucks werken in een kleine ruimte met gedeelde friteuses, bakplaten en tangen. “Glutenvrij” of “vegan” op deze lijst zegt iets over het recept, niet over een gescheiden bereiding. Bij een ernstige allergie is dat het verschil dat telt — zeg erbij hoe ernstig het is.</p></div><div class="card"><h3>Eigen eten meenemen mag dan wél</h3><p>Eigen eten en drinken zijn normaal niet toegestaan, maar voor medische of dieetredenen — allergieën, diabetes en dergelijke — mag je meenemen wat je strikt nodig hebt. Neem een doktersverklaring mee; zonder bewijs kan het alsnog geweigerd worden. Zie de <a href="policy.html#food">huisregels</a>.</p></div></div>
   <details style="margin-top:1.15rem"><summary>De veertien wettelijke allergenen</summary><div class="body">
    <ol><li>Glutenbevattende granen (tarwe, rogge, gerst, haver, spelt, kamut)</li><li>Schaaldieren</li><li>Eieren</li><li>Vis</li><li>Pinda’s</li><li>Soja</li><li>Melk (inclusief lactose)</li><li>Noten (amandel, hazelnoot, walnoot, cashew, pecan, paranoot, pistache, macadamia)</li><li>Selderij</li><li>Mosterd</li><li>Sesamzaad</li><li>Zwaveldioxide en sulfiet (boven 10 mg/kg of mg/l)</li><li>Lupine</li><li>Weekdieren</li></ol>
-   <p>Deze veertien staan in bijlage II van EU-verordening 1169/2011 en gelden ook voor onverpakt eten op evenementen in Nederland.</p>
+   <p>Deze veertien staan in bijlage II van EU-verordening 1169/2011 en gelden ook voor onverpakt eten op evenementen in Nederland. Lijst en volgorde nagekeken tegen de <a href="https://www.nvwa.nl/onderwerpen/voedselveiligheid/allergenen/over-welke-allergenen-moet-ik-informatie-geven" rel="noopener">NVWA</a> (4 september 2026); dat is ook de instantie die erop toeziet.</p>
   </div></details>
 </div></section><section id="horeca"><div class="wrap">
   <h2>Vaste horeca in de kasteeltuinen</h2>
