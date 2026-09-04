@@ -7,7 +7,8 @@ X-WR-CALNAME:Elfia Arcen 2026 — Muziek / Music
 X-WR-TIMEZONE:Europe/Amsterdam
 X-WR-CALDESC:Elfia Arcen 2026 — Kasteeltuinen Arcen\, 19 & 20 September
   2026. Times can still change\; check the boards at the stages on the day
- .
+ . Roaming acts (Bandits Creek) and signing sessions (Elfia Treasures) are
+  not included.
 BEGIN:VTIMEZONE
 TZID:Europe/Amsterdam
 X-LIC-LOCATION:Europe/Amsterdam
@@ -27,71 +28,8 @@ RRULE:FREQ=YEARLY;BYMONTH=10;BYDAY=-1SU
 END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
-UID:20260919-folk-faire-1200-airboxes@elfia.nl
-DTSTAMP:20260826T000000Z
-DTSTART;TZID=Europe/Amsterdam:20260919T120000
-DTEND;TZID=Europe/Amsterdam:20260919T133000
-SUMMARY:Airboxes — Folk · Accordion
-LOCATION:Folk Faire · Kasteeltuinen Arcen\, Lingsforterweg 26\, 5944 BE 
- Arcen
-DESCRIPTION:An accordion duo blending acoustic tradition with innovative 
- contemporary folk\nStage: Folk Faire\nSaturday 19 September\, 12:00–13:
- 30\nElfia Arcen 2026 — times can change\; check the boards at the stage
- s.
-CATEGORIES:Music
-TRANSP:OPAQUE
-STATUS:CONFIRMED
-END:VEVENT
-BEGIN:VEVENT
-UID:20260919-folk-faire-1400-balforia@elfia.nl
-DTSTAMP:20260826T000000Z
-DTSTART;TZID=Europe/Amsterdam:20260919T140000
-DTEND;TZID=Europe/Amsterdam:20260919T153000
-SUMMARY:Balforia — Nordic Balfolk
-LOCATION:Folk Faire · Kasteeltuinen Arcen\, Lingsforterweg 26\, 5944 BE 
- Arcen
-DESCRIPTION:A balfolk band blending Scandinavian folk traditions with tra
- nce-like melodies and fairytale magic\nStage: Folk Faire\nSaturday 19 Sep
- tember\, 14:00–15:30\nElfia Arcen 2026 — times can change\; check the
-  boards at the stages.
-CATEGORIES:Music
-TRANSP:OPAQUE
-STATUS:CONFIRMED
-END:VEVENT
-BEGIN:VEVENT
-UID:20260919-folk-faire-1830-celtic-constellation@elfia.nl
-DTSTAMP:20260826T000000Z
-DTSTART;TZID=Europe/Amsterdam:20260919T183000
-DTEND;TZID=Europe/Amsterdam:20260919T200000
-SUMMARY:Celtic Constellation — Celtic Folk
-LOCATION:Folk Faire · Kasteeltuinen Arcen\, Lingsforterweg 26\, 5944 BE 
- Arcen
-DESCRIPTION:A balfolk band blending Celtic\, Nordic\, and world folk into
-  energetic dance music\nStage: Folk Faire\nSaturday 19 September\, 18:30
- –20:00\nElfia Arcen 2026 — times can change\; check the boards at the
-  stages.
-CATEGORIES:Music
-TRANSP:OPAQUE
-STATUS:CONFIRMED
-END:VEVENT
-BEGIN:VEVENT
-UID:20260919-folk-faire-2030-electrad@elfia.nl
-DTSTAMP:20260826T000000Z
-DTSTART;TZID=Europe/Amsterdam:20260919T203000
-DTEND;TZID=Europe/Amsterdam:20260919T220000
-SUMMARY:Electrad — Electro-Folk
-LOCATION:Folk Faire · Kasteeltuinen Arcen\, Lingsforterweg 26\, 5944 BE 
- Arcen
-DESCRIPTION:A duo blending Breton folk traditions with immersive electron
- ic soundscapes\nStage: Folk Faire\nSaturday 19 September\, 20:30–22:00\
- nElfia Arcen 2026 — times can change\; check the boards at the stages.
-CATEGORIES:Music
-TRANSP:OPAQUE
-STATUS:CONFIRMED
-END:VEVENT
-BEGIN:VEVENT
 UID:20260919-music-court-1100-merulsa@elfia.nl
-DTSTAMP:20260826T000000Z
+DTSTAMP:20260904T000000Z
 DTSTART;TZID=Europe/Amsterdam:20260919T110000
 DTEND;TZID=Europe/Amsterdam:20260919T123000
 SUMMARY:Merulsa — Folk
@@ -106,11 +44,27 @@ TRANSP:OPAQUE
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
+UID:20260919-folk-faire-1200-airboxes@elfia.nl
+DTSTAMP:20260904T000000Z
+DTSTART;TZID=Europe/Amsterdam:20260919T120000
+DTEND;TZID=Europe/Amsterdam:20260919T133000
+SUMMARY:Airboxes — Folk · Accordion
+LOCATION:Folk Faire · Kasteeltuinen Arcen\, Lingsforterweg 26\, 5944 BE 
+ Arcen
+DESCRIPTION:An accordion duo blending acoustic tradition with innovative 
+ contemporary folk\nStage: Folk Faire\nSaturday 19 September\, 12:00–13:
+ 30\nElfia Arcen 2026 — times can change\; check the boards at the stage
+ s.
+CATEGORIES:Music
+TRANSP:OPAQUE
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
 UID:20260919-music-court-1315-zniwa@elfia.nl
-DTSTAMP:20260826T000000Z
+DTSTAMP:20260904T000000Z
 DTSTART;TZID=Europe/Amsterdam:20260919T131500
 DTEND;TZID=Europe/Amsterdam:20260919T144500
-SUMMARY:Żniwa — Pagan Folk
+SUMMARY:Zniwa — Pagan Folk
 LOCATION:Music Court · Kasteeltuinen Arcen\, Lingsforterweg 26\, 5944 BE
   Arcen
 DESCRIPTION:A pagan folk duo blending Celtic\, Slavic\, and Nordic tradit
@@ -122,8 +76,24 @@ TRANSP:OPAQUE
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
+UID:20260919-folk-faire-1400-balforia@elfia.nl
+DTSTAMP:20260904T000000Z
+DTSTART;TZID=Europe/Amsterdam:20260919T140000
+DTEND;TZID=Europe/Amsterdam:20260919T153000
+SUMMARY:Balforia — Nordic Balfolk
+LOCATION:Folk Faire · Kasteeltuinen Arcen\, Lingsforterweg 26\, 5944 BE 
+ Arcen
+DESCRIPTION:A balfolk band blending Scandinavian folk traditions with tra
+ nce-like melodies and fairytale magic\nStage: Folk Faire\nSaturday 19 Sep
+ tember\, 14:00–15:30\nElfia Arcen 2026 — times can change\; check the
+  boards at the stages.
+CATEGORIES:Music
+TRANSP:OPAQUE
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
 UID:20260919-music-court-1530-compagnia-la-giostra@elfia.nl
-DTSTAMP:20260826T000000Z
+DTSTAMP:20260904T000000Z
 DTSTART;TZID=Europe/Amsterdam:20260919T153000
 DTEND;TZID=Europe/Amsterdam:20260919T170000
 SUMMARY:Compagnia La Giostra — Mediterranean Folk
@@ -138,8 +108,39 @@ TRANSP:OPAQUE
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
+UID:20260919-bard-s-theater-1630-bardeoke-the-trouble-notes-x-zniwa@elfia
+ .nl
+DTSTAMP:20260904T000000Z
+DTSTART;TZID=Europe/Amsterdam:20260919T163000
+DTEND;TZID=Europe/Amsterdam:20260919T180000
+SUMMARY:Bardeoke The Trouble Notes x Żniwa — Folk Jam
+LOCATION:Bard's Theater · Kasteeltuinen Arcen\, Lingsforterweg 26\, 5944
+  BE Arcen
+DESCRIPTION:Stage: Bard's Theater\nSaturday 19 September\, 16:30–18:00\
+ nElfia Arcen 2026 — times can change\; check the boards at the stages.
+CATEGORIES:Music
+TRANSP:OPAQUE
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:20260919-folk-faire-1630-duo-sionneau-gielen@elfia.nl
+DTSTAMP:20260904T000000Z
+DTSTART;TZID=Europe/Amsterdam:20260919T163000
+DTEND;TZID=Europe/Amsterdam:20260919T180000
+SUMMARY:Duo Sionneau - Gielen — Neo-Folk
+LOCATION:Folk Faire · Kasteeltuinen Arcen\, Lingsforterweg 26\, 5944 BE 
+ Arcen
+DESCRIPTION:A folk duo blending hurdy-gurdy\, diatonic accordion\, and ne
+ o-folk dance music\nStage: Folk Faire\nSaturday 19 September\, 16:30–18
+ :00\nElfia Arcen 2026 — times can change\; check the boards at the stag
+ es.
+CATEGORIES:Music
+TRANSP:OPAQUE
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
 UID:20260919-music-court-1800-patty-gurdy@elfia.nl
-DTSTAMP:20260826T000000Z
+DTSTAMP:20260904T000000Z
 DTSTART;TZID=Europe/Amsterdam:20260919T180000
 DTEND;TZID=Europe/Amsterdam:20260919T193000
 SUMMARY:Patty Gurdy — Celtic Pop
@@ -154,8 +155,54 @@ TRANSP:OPAQUE
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
+UID:20260919-folk-faire-1830-celtic-constellation@elfia.nl
+DTSTAMP:20260904T000000Z
+DTSTART;TZID=Europe/Amsterdam:20260919T183000
+DTEND;TZID=Europe/Amsterdam:20260919T200000
+SUMMARY:Celtic Constellation — Celtic Folk
+LOCATION:Folk Faire · Kasteeltuinen Arcen\, Lingsforterweg 26\, 5944 BE 
+ Arcen
+DESCRIPTION:A balfolk band blending Celtic\, Nordic\, and world folk into
+  energetic dance music\nStage: Folk Faire\nSaturday 19 September\, 18:30
+ –20:00\nElfia Arcen 2026 — times can change\; check the boards at the
+  stages.
+CATEGORIES:Music
+TRANSP:OPAQUE
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:20260919-bard-s-theater-1900-zniwas-bardic-harvest-music-jam-dance@el
+ fia.nl
+DTSTAMP:20260904T000000Z
+DTSTART;TZID=Europe/Amsterdam:20260919T190000
+DTEND;TZID=Europe/Amsterdam:20260919T200000
+SUMMARY:Żniwa’s Bardic Harvest: Music\, Jam & Dance — Folk Jam
+LOCATION:Bard's Theater · Kasteeltuinen Arcen\, Lingsforterweg 26\, 5944
+  BE Arcen
+DESCRIPTION:Stage: Bard's Theater\nSaturday 19 September\, 19:00–20:00\
+ nElfia Arcen 2026 — times can change\; check the boards at the stages.
+CATEGORIES:Music
+TRANSP:OPAQUE
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:20260919-folk-faire-2030-electrad@elfia.nl
+DTSTAMP:20260904T000000Z
+DTSTART;TZID=Europe/Amsterdam:20260919T203000
+DTEND;TZID=Europe/Amsterdam:20260919T220000
+SUMMARY:Electrad — Electro-Folk
+LOCATION:Folk Faire · Kasteeltuinen Arcen\, Lingsforterweg 26\, 5944 BE 
+ Arcen
+DESCRIPTION:A duo blending Breton folk traditions with immersive electron
+ ic soundscapes\nStage: Folk Faire\nSaturday 19 September\, 20:30–22:00\
+ nElfia Arcen 2026 — times can change\; check the boards at the stages.
+CATEGORIES:Music
+TRANSP:OPAQUE
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
 UID:20260919-music-court-2030-greenlads@elfia.nl
-DTSTAMP:20260826T000000Z
+DTSTAMP:20260904T000000Z
 DTSTART;TZID=Europe/Amsterdam:20260919T203000
 DTEND;TZID=Europe/Amsterdam:20260919T220000
 SUMMARY:GreenLads — Celtic Folk-Rock
@@ -169,85 +216,8 @@ TRANSP:OPAQUE
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
-UID:20260919-bard-s-theater-1730-bardeoke-the-trouble-notes-x-zniwa@elfia
- .nl
-DTSTAMP:20260826T000000Z
-DTSTART;TZID=Europe/Amsterdam:20260919T173000
-DTEND;TZID=Europe/Amsterdam:20260919T183000
-SUMMARY:Bardeoke The Trouble Notes x Żniwa — Folk Jam
-LOCATION:Bard's Theater · Kasteeltuinen Arcen\, Lingsforterweg 26\, 5944
-  BE Arcen
-DESCRIPTION:Stage: Bard's Theater\nSaturday 19 September\, 17:30–18:30\
- nElfia Arcen 2026 — times can change\; check the boards at the stages.
-CATEGORIES:Music
-TRANSP:OPAQUE
-STATUS:CONFIRMED
-END:VEVENT
-BEGIN:VEVENT
-UID:20260919-bard-s-theater-1900-zniwas-bardic-harvest-music-jam-dance@el
- fia.nl
-DTSTAMP:20260826T000000Z
-DTSTART;TZID=Europe/Amsterdam:20260919T190000
-DTEND;TZID=Europe/Amsterdam:20260919T200000
-SUMMARY:Żniwa’s Bardic Harvest: Music\, Jam & Dance — Folk Jam
-LOCATION:Bard's Theater · Kasteeltuinen Arcen\, Lingsforterweg 26\, 5944
-  BE Arcen
-DESCRIPTION:Stage: Bard's Theater\nSaturday 19 September\, 19:00–20:00\
- nElfia Arcen 2026 — times can change\; check the boards at the stages.
-CATEGORIES:Music
-TRANSP:OPAQUE
-STATUS:CONFIRMED
-END:VEVENT
-BEGIN:VEVENT
-UID:20260920-folk-faire-1200-balforia@elfia.nl
-DTSTAMP:20260826T000000Z
-DTSTART;TZID=Europe/Amsterdam:20260920T120000
-DTEND;TZID=Europe/Amsterdam:20260920T133000
-SUMMARY:Balforia — Nordic Balfolk
-LOCATION:Folk Faire · Kasteeltuinen Arcen\, Lingsforterweg 26\, 5944 BE 
- Arcen
-DESCRIPTION:A balfolk band blending Scandinavian folk traditions with tra
- nce-like melodies and fairytale magic\nStage: Folk Faire\nSunday 20 Septe
- mber\, 12:00–13:30\nElfia Arcen 2026 — times can change\; check the b
- oards at the stages.
-CATEGORIES:Music
-TRANSP:OPAQUE
-STATUS:CONFIRMED
-END:VEVENT
-BEGIN:VEVENT
-UID:20260920-folk-faire-1400-celtic-constellation@elfia.nl
-DTSTAMP:20260826T000000Z
-DTSTART;TZID=Europe/Amsterdam:20260920T140000
-DTEND;TZID=Europe/Amsterdam:20260920T153000
-SUMMARY:Celtic Constellation — Celtic Folk
-LOCATION:Folk Faire · Kasteeltuinen Arcen\, Lingsforterweg 26\, 5944 BE 
- Arcen
-DESCRIPTION:A balfolk band blending Celtic\, Nordic\, and world folk into
-  energetic dance music\nStage: Folk Faire\nSunday 20 September\, 14:00–
- 15:30\nElfia Arcen 2026 — times can change\; check the boards at the st
- ages.
-CATEGORIES:Music
-TRANSP:OPAQUE
-STATUS:CONFIRMED
-END:VEVENT
-BEGIN:VEVENT
-UID:20260920-folk-faire-1700-electrad@elfia.nl
-DTSTAMP:20260826T000000Z
-DTSTART;TZID=Europe/Amsterdam:20260920T170000
-DTEND;TZID=Europe/Amsterdam:20260920T183000
-SUMMARY:Electrad — Electro-Folk
-LOCATION:Folk Faire · Kasteeltuinen Arcen\, Lingsforterweg 26\, 5944 BE 
- Arcen
-DESCRIPTION:A duo blending Breton folk traditions with immersive electron
- ic soundscapes\nStage: Folk Faire\nSunday 20 September\, 17:00–18:30\nE
- lfia Arcen 2026 — times can change\; check the boards at the stages.
-CATEGORIES:Music
-TRANSP:OPAQUE
-STATUS:CONFIRMED
-END:VEVENT
-BEGIN:VEVENT
 UID:20260920-music-court-1100-idun-s-apple@elfia.nl
-DTSTAMP:20260826T000000Z
+DTSTAMP:20260904T000000Z
 DTSTART;TZID=Europe/Amsterdam:20260920T110000
 DTEND;TZID=Europe/Amsterdam:20260920T123000
 SUMMARY:Idun's Apple — Celtic & Nordic Folk
@@ -262,8 +232,24 @@ TRANSP:OPAQUE
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
+UID:20260920-folk-faire-1200-balforia@elfia.nl
+DTSTAMP:20260904T000000Z
+DTSTART;TZID=Europe/Amsterdam:20260920T120000
+DTEND;TZID=Europe/Amsterdam:20260920T133000
+SUMMARY:Balforia — Nordic Balfolk
+LOCATION:Folk Faire · Kasteeltuinen Arcen\, Lingsforterweg 26\, 5944 BE 
+ Arcen
+DESCRIPTION:A balfolk band blending Scandinavian folk traditions with tra
+ nce-like melodies and fairytale magic\nStage: Folk Faire\nSunday 20 Septe
+ mber\, 12:00–13:30\nElfia Arcen 2026 — times can change\; check the b
+ oards at the stages.
+CATEGORIES:Music
+TRANSP:OPAQUE
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
 UID:20260920-music-court-1315-tribubu@elfia.nl
-DTSTAMP:20260826T000000Z
+DTSTAMP:20260904T000000Z
 DTSTART;TZID=Europe/Amsterdam:20260920T131500
 DTEND;TZID=Europe/Amsterdam:20260920T144500
 SUMMARY:Tribubu — World Music
@@ -278,8 +264,39 @@ TRANSP:OPAQUE
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
+UID:20260920-bard-s-theater-1400-bardeoke-with-the-trouble-notes-x-tribub
+ @elfia.nl
+DTSTAMP:20260904T000000Z
+DTSTART;TZID=Europe/Amsterdam:20260920T140000
+DTEND;TZID=Europe/Amsterdam:20260920T153000
+SUMMARY:Bardeoke with The Trouble Notes x Tribubu — Folk Jam
+LOCATION:Bard's Theater · Kasteeltuinen Arcen\, Lingsforterweg 26\, 5944
+  BE Arcen
+DESCRIPTION:Stage: Bard's Theater\nSunday 20 September\, 14:00–15:30\nE
+ lfia Arcen 2026 — times can change\; check the boards at the stages.
+CATEGORIES:Music
+TRANSP:OPAQUE
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:20260920-folk-faire-1400-celtic-constellation@elfia.nl
+DTSTAMP:20260904T000000Z
+DTSTART;TZID=Europe/Amsterdam:20260920T140000
+DTEND;TZID=Europe/Amsterdam:20260920T153000
+SUMMARY:Celtic Constellation — Celtic Folk
+LOCATION:Folk Faire · Kasteeltuinen Arcen\, Lingsforterweg 26\, 5944 BE 
+ Arcen
+DESCRIPTION:A balfolk band blending Celtic\, Nordic\, and world folk into
+  energetic dance music\nStage: Folk Faire\nSunday 20 September\, 14:00–
+ 15:30\nElfia Arcen 2026 — times can change\; check the boards at the st
+ ages.
+CATEGORIES:Music
+TRANSP:OPAQUE
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
 UID:20260920-music-court-1530-folkulaka@elfia.nl
-DTSTAMP:20260826T000000Z
+DTSTAMP:20260904T000000Z
 DTSTART;TZID=Europe/Amsterdam:20260920T153000
 DTEND;TZID=Europe/Amsterdam:20260920T170000
 SUMMARY:Folkulaka — Dark Folk
@@ -294,39 +311,8 @@ TRANSP:OPAQUE
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
-UID:20260920-music-court-1730-the-trouble-notes@elfia.nl
-DTSTAMP:20260826T000000Z
-DTSTART;TZID=Europe/Amsterdam:20260920T173000
-DTEND;TZID=Europe/Amsterdam:20260920T190000
-SUMMARY:The Trouble Notes — World-Folk
-LOCATION:Music Court · Kasteeltuinen Arcen\, Lingsforterweg 26\, 5944 BE
-  Arcen
-DESCRIPTION:A progressive world-folk trio blending global influences\, dr
- iving rhythms\, and explosive live energy\nStage: Music Court\nSunday 20 
- September\, 17:30–19:00\nElfia Arcen 2026 — times can change\; check 
- the boards at the stages.
-CATEGORIES:Music
-TRANSP:OPAQUE
-STATUS:CONFIRMED
-END:VEVENT
-BEGIN:VEVENT
-UID:20260920-bard-s-theater-1400-bardeoke-with-the-trouble-notes-x-tribub
- @elfia.nl
-DTSTAMP:20260826T000000Z
-DTSTART;TZID=Europe/Amsterdam:20260920T140000
-DTEND;TZID=Europe/Amsterdam:20260920T153000
-SUMMARY:Bardeoke with The Trouble Notes x Tribubu — Folk Jam
-LOCATION:Bard's Theater · Kasteeltuinen Arcen\, Lingsforterweg 26\, 5944
-  BE Arcen
-DESCRIPTION:Stage: Bard's Theater\nSunday 20 September\, 14:00–15:30\nE
- lfia Arcen 2026 — times can change\; check the boards at the stages.
-CATEGORIES:Music
-TRANSP:OPAQUE
-STATUS:CONFIRMED
-END:VEVENT
-BEGIN:VEVENT
 UID:20260920-bard-s-theater-1630-compagnia-la-giostra@elfia.nl
-DTSTAMP:20260826T000000Z
+DTSTAMP:20260904T000000Z
 DTSTART;TZID=Europe/Amsterdam:20260920T163000
 DTEND;TZID=Europe/Amsterdam:20260920T180000
 SUMMARY:Compagnia La Giostra — Mediterranean Folk
@@ -334,6 +320,37 @@ LOCATION:Bard's Theater · Kasteeltuinen Arcen\, Lingsforterweg 26\, 5944
   BE Arcen
 DESCRIPTION:Stage: Bard's Theater\nSunday 20 September\, 16:30–18:00\nE
  lfia Arcen 2026 — times can change\; check the boards at the stages.
+CATEGORIES:Music
+TRANSP:OPAQUE
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:20260920-folk-faire-1700-electrad@elfia.nl
+DTSTAMP:20260904T000000Z
+DTSTART;TZID=Europe/Amsterdam:20260920T170000
+DTEND;TZID=Europe/Amsterdam:20260920T183000
+SUMMARY:Electrad — Electro-Folk
+LOCATION:Folk Faire · Kasteeltuinen Arcen\, Lingsforterweg 26\, 5944 BE 
+ Arcen
+DESCRIPTION:A duo blending Breton folk traditions with immersive electron
+ ic soundscapes\nStage: Folk Faire\nSunday 20 September\, 17:00–18:30\nE
+ lfia Arcen 2026 — times can change\; check the boards at the stages.
+CATEGORIES:Music
+TRANSP:OPAQUE
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:20260920-music-court-1730-the-troublenotes@elfia.nl
+DTSTAMP:20260904T000000Z
+DTSTART;TZID=Europe/Amsterdam:20260920T173000
+DTEND;TZID=Europe/Amsterdam:20260920T190000
+SUMMARY:The Troublenotes — World-Folk
+LOCATION:Music Court · Kasteeltuinen Arcen\, Lingsforterweg 26\, 5944 BE
+  Arcen
+DESCRIPTION:A progressive world-folk trio blending global influences\, dr
+ iving rhythms\, and explosive live energy\nStage: Music Court\nSunday 20 
+ September\, 17:30–19:00\nElfia Arcen 2026 — times can change\; check 
+ the boards at the stages.
 CATEGORIES:Music
 TRANSP:OPAQUE
 STATUS:CONFIRMED

@@ -1,0 +1,202 @@
+{
+ "airboxes": {
+  "cls": "genre",
+  "tag": "Folk · Accordion"
+ },
+ "akoestischesfeermakersallday": {
+  "cls": "genre",
+  "tag": "Acoustic · Roaming"
+ },
+ "amsterdamburlesquehowtoposeandbeingconfidentinfrontofcameras": {
+  "cls": "type",
+  "tag": "Workshop"
+ },
+ "asipofglamourfabiusthejester": {
+  "cls": "type perf",
+  "tag": "Circus"
+ },
+ "balfolkworkshopadvanced": {
+  "cls": "type",
+  "tag": "Workshop"
+ },
+ "balfolkworkshopbeginner": {
+  "cls": "type",
+  "tag": "Workshop"
+ },
+ "balforia": {
+  "cls": "genre",
+  "tag": "Nordic Balfolk"
+ },
+ "bardeokethetroublenotesxzniwa": {
+  "cls": "genre",
+  "tag": "Folk Jam"
+ },
+ "bardeokewiththetroublenotesxtribubu": {
+  "cls": "genre",
+  "tag": "Folk Jam"
+ },
+ "bardsd20adventureswiththetroublenotes": {
+  "cls": "type",
+  "tag": "Game"
+ },
+ "bardstaverngameswiththetroublenotes": {
+  "cls": "type",
+  "tag": "Game"
+ },
+ "celticconstellation": {
+  "cls": "genre",
+  "tag": "Celtic Folk"
+ },
+ "chairsacroshineyourlightflowmies": {
+  "cls": "type perf",
+  "tag": "Circus"
+ },
+ "champaigneglassduofabiusthejester": {
+  "cls": "type perf",
+  "tag": "Circus"
+ },
+ "compagnialagiostra": {
+  "cls": "genre",
+  "tag": "Mediterranean Folk"
+ },
+ "cosplaycatwalk": {
+  "cls": "type perf",
+  "tag": "Parade"
+ },
+ "costumecatwalk": {
+  "cls": "type perf",
+  "tag": "Parade"
+ },
+ "costumeparade": {
+  "cls": "type perf",
+  "tag": "Parade"
+ },
+ "drachocwhereelfiabegins": {
+  "cls": "type",
+  "tag": "Talk"
+ },
+ "duosionneaugielen": {
+  "cls": "genre",
+  "tag": "Neo-Folk"
+ },
+ "electrad": {
+  "cls": "genre",
+  "tag": "Electro-Folk"
+ },
+ "elfecstaticdancewiththetroublenotes": {
+  "cls": "type",
+  "tag": "Dance"
+ },
+ "elfiatemptation": {
+  "cls": "type perf",
+  "tag": "18+ Show"
+ },
+ "fabiusthejester": {
+  "cls": "type perf",
+  "tag": "Circus"
+ },
+ "fabiusthejesterlisachudalla": {
+  "cls": "type perf",
+  "tag": "Circus"
+ },
+ "folkulaka": {
+  "cls": "genre",
+  "tag": "Dark Folk"
+ },
+ "foreverinbloombeetaxidermywithfennasatelier": {
+  "cls": "type",
+  "tag": "Workshop"
+ },
+ "greenlads": {
+  "cls": "genre",
+  "tag": "Celtic Folk-Rock"
+ },
+ "idunsapple": {
+  "cls": "genre",
+  "tag": "Celtic & Nordic Folk"
+ },
+ "kyaralinedancing": {
+  "cls": "type",
+  "tag": "Dance"
+ },
+ "lauralollipopluluchairs": {
+  "cls": "type perf",
+  "tag": "Circus"
+ },
+ "leogarbofloragattina": {
+  "cls": "type perf",
+  "tag": "Circus"
+ },
+ "meettheartistsigningsessionwithdarjablinovadrachocmangaillustrator": {
+  "cls": "type",
+  "tag": "Signing"
+ },
+ "merulsa": {
+  "cls": "genre",
+  "tag": "Folk"
+ },
+ "mirrormirrorontheball": {
+  "cls": "type perf",
+  "tag": "Ball"
+ },
+ "pattygurdy": {
+  "cls": "genre",
+  "tag": "Celtic Pop"
+ },
+ "salemdeestoryofelfia": {
+  "cls": "type perf",
+  "tag": "Circus"
+ },
+ "salemdeestoryofelfialauragermanwheel": {
+  "cls": "type perf",
+  "tag": "Circus"
+ },
+ "scoringemotionsbehindtheelfiascorewithstevenstoffels": {
+  "cls": "type",
+  "tag": "Talk"
+ },
+ "signupforbardeoke": {
+  "cls": "type",
+  "tag": "Sign-up"
+ },
+ "signupforbardstaverngames": {
+  "cls": "type",
+  "tag": "Sign-up"
+ },
+ "signuppreparationforbardsd20adventures": {
+  "cls": "type",
+  "tag": "Sign-up"
+ },
+ "talesofdrachocamagicalwatchparty": {
+  "cls": "type",
+  "tag": "Watch Party"
+ },
+ "theartoflivingsculptures": {
+  "cls": "type",
+  "tag": "Workshop"
+ },
+ "theartoftransformativemakeupgiuliomugs": {
+  "cls": "type",
+  "tag": "Workshop"
+ },
+ "thetroublenotes": {
+  "cls": "genre",
+  "tag": "World-Folk"
+ },
+ "tribubu": {
+  "cls": "genre",
+  "tag": "World Music"
+ },
+ "trinethesecretsbehindarmourmaking": {
+  "cls": "type",
+  "tag": "Talk"
+ },
+ "zniwa": {
+  "cls": "genre",
+  "tag": "Pagan Folk"
+ },
+ "zniwasbardicharvestmusicjamdance": {
+  "cls": "genre",
+  "tag": "Folk Jam"
+ }
+}

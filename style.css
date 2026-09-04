@@ -203,6 +203,8 @@ body:has(#f-work:checked) .lede .c-work{display:inline}
 .tt-e.s1 time{font-size:.63rem;line-height:1.3}
 .tt-e.s1 .genre,.tt-e.s1 .type{font-size:.58rem;padding:0 .45rem;line-height:1.5}
 .tt-e.s2{gap:.05rem}
+/* a one-hour block fits a two-line title plus two lines of description, no more */
+.tt-e.s3 span{-webkit-line-clamp:2}
 .tt-e.s2 b{-webkit-line-clamp:2;line-height:1.2}
 .tt-list{display:none}
 .tt-list h3{margin-top:1.6rem}
@@ -221,7 +223,18 @@ body:has(#f-work:checked) .lede .c-work{display:inline}
 .tt-row .genre,.tt-row .type{display:inline-block;margin:-.05rem 0 .3rem}
 .tt-e:has(.genre){border-left-color:var(--accent)}
 .legend .genre,.legend .type{margin-right:.4rem;vertical-align:1px}
-@media (max-width:56rem){.tt-grid{display:none} .tt-list{display:block}}
+/* 15-minute blocks: one row, time and name side by side */
+.tt-e.s0{flex-direction:row;align-items:baseline;gap:.35rem;padding:.13rem .45rem}
+.tt-e.s0 time{font-size:.6rem;flex:none}
+.tt-e.s0 b{font-size:.72rem;line-height:1.15;-webkit-line-clamp:1}
+.tt-e.s0 .genre,.tt-e.s0 .type,.tt-e.s0 span{display:none}
+/* all-day roaming act: sits under the real slots that share its column */
+.tt-e.allday{background:color-mix(in srgb,var(--accent) 9%,var(--bg2));
+  border-left-style:dashed;justify-content:flex-start}
+.tt-grid .tt-e:not(.allday){z-index:1}
+/* seven stages need more room than the 66rem text column */
+.tt-wide{max-width:82rem}
+@media (max-width:64rem){.tt-grid{display:none} .tt-list{display:block}}
 
 /* music A–Z */
 .azgrid{display:grid;gap:1rem;grid-template-columns:repeat(auto-fill,minmax(16.5rem,1fr))}

@@ -17,10 +17,10 @@ under `/en/`. Every page has an EN/NL toggle in the nav.
 |---|---|
 | `index.html` | Home — key facts + the grounds map |
 | `programme.html` | The ten themed realms and this year's highlights |
-| `lineup.html` | Full timetable: every act by stage and time slot, both days, a category filter, a Music A–Z index and the calendar downloads |
+| `lineup.html` | Full timetable: 65 slots across 7 stages, both days, a category filter, a Music A–Z index and the calendar downloads |
 | `map.html` | Grounds map image + all 46 locations transcribed as text |
-| `food.html` | Eten & drinken: all 14 caterers by realm, dietary filter, allergen guidance |
-| `vendors.html` | Markt: all 110 traders by realm, jump links + an A–Z index of every stall |
+| `food.html` | Eten & drinken: all 19 caterer stalls by realm, dietary filter, allergen guidance |
+| `vendors.html` | Markt: all 124 traders by realm, jump links + an A–Z index of every stall |
 | `visit.html` | Opening hours, address, accessible parking, re-entry, children |
 | `policy.html` | Visitor policy: weapons, animals, food, alcohol, smoking, drones |
 | `faq.html` | Short Q&A + the full FAQ: all 61 of Elfia's questions in 12 categories |
@@ -28,8 +28,9 @@ under `/en/`. Every page has an EN/NL toggle in the nav.
 | `history.html` | Past Arcen editions (2023–2025) |
 | `style.css` | Shared stylesheet (palette taken from the official elfia.com CSS) |
 | `arcen-map.webp` | Recompressed grounds map (1600px, ~183 KB) |
-| `elfia-2026-muziek.ics` | All 20 music sets as an iCalendar file (Europe/Amsterdam) |
-| `elfia-2026-programma.ics` | All 46 programme items as an iCalendar file |
+| `elfia-2026-muziek.ics` | 21 music sets as an iCalendar file (Europe/Amsterdam) |
+| `elfia-2026-programma.ics` | 54 programme items as an iCalendar file |
+| `build/` | API snapshot, templates and the four generators — see `CLAUDE.md` |
 | `en/` | English versions of every page |
 
 Total: 23 pages + 2 calendar files, ~600 KB including the map image (`vendors.html` is the largest page at 38 KB — 110 stalls with descriptions). First paint of the home page is
@@ -58,11 +59,16 @@ the 14 stalls carry no labels at all. `food.html` says so explicitly rather than
 list is complete; the allergen section points visitors at the stall and at the medical/dietary
 exemption in `policy.html#food`.
 
-`food.html` / `en/food.html` are built by `make-food.py` from a `caterers-arcen-2026.json`
-snapshot; the script also inserts the nav entry on every other page (nav bars only — the
-match is scoped to `<nav>`, since several pages link to `map.html` in body copy too).
+Every generated page is built from `build/programme.json` by the scripts in `build/`.
+One command rebuilds the lot: `sh build/build-all.sh`. See `CLAUDE.md` for the full
+picture, including the traps.
 
 ## Calendar files
+
+**Bandits Creek and Elfia Treasures are excluded from both `.ics` files** on purpose
+(`EXCLUDED_STAGES` in `build/make-ics.py`): a roaming all-day act, quarter-hour
+line-dancing slots and signing sessions are calendar clutter rather than things you plan a
+day around. They do appear on the line-up page.
 
 `elfia-2026-muziek.ics` (music only) and `elfia-2026-programma.ics` (everything) are
 plain iCalendar 2.0, one `VEVENT` per programme item, all timed with an embedded
@@ -105,8 +111,8 @@ linkable.
 
 | Where | What | Count |
 |---|---|---|
-| `programme` → realm `shops[]` | Caterers — **now used**, see `food.html` | 14 |
-| `programme` → realm `exhibitors[]` | Traders — **now used**, see `vendors.html`. 110/110 have a description and an image, 1 (`Het Elfenbankje`) has a link | 110 |
+| `programme` → realm `shops[]` | Caterers — **now used**, see `food.html` | 19 |
+| `programme` → realm `exhibitors[]` | Traders — **now used**, see `vendors.html`. All have a description and an image, 1 (`Het Elfenbankje`) has a link | 124 |
 | `programme` → `highlightImage[categoryType=highlight]` | Act/guest highlights | 36 |
 | `programme` → `highlightImage[categoryType=realms]` | Realms | 20 |
 | `programme` → `highlightImage[categoryType=workshop]` | Academy workshops | 5 |
@@ -154,6 +160,11 @@ can go stale (e.g. the announcement banner, sold-out status).
 - The nav carries 11 entries since `vendors.html` was added; item font/padding were tightened
   (.79rem / .42rem, gap .1rem) so the full bar still fits inside the 66rem wrap at desktop
   width. Adding a twelfth entry will overflow into the existing horizontal scroll.
+- **The API changed shape in early Sept 2026:** a slot's `activity` field now packs name
+  and description into one string, `"Merulsa (A folk project led by...)"`. The generators
+  split on the trailing parenthetical, keeping short ones like `(All Day)` in the name.
+- **Stages renamed 4 Sept 2026:** Giostra Fortunia → La Piazza Dei Sogni, Academy Hall →
+  Elfia Academy; Bandits Creek and Elfia Treasures added. The new map uses the new names.
 - The programme is provisional — its own data carries a "more updates coming soon" note,
   surfaced as a banner on the line-up page. When it changes, regenerate both `.ics` files.
 - Two band names arrived spelled two ways in the source data; the line-up now uses
