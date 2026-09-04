@@ -9,12 +9,14 @@
 <link rel="alternate" hreflang="nl" href="https://elfia.nl/map.html">
 <link rel="alternate" hreflang="en" href="https://elfia.nl/en/map.html">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ctext y='26' font-size='26'%3E%F0%9F%8F%B0%3C/text%3E%3C/svg%3E">
+<script>document.documentElement.classList.add("js");try{if(localStorage.theme==="dark")document.documentElement.dataset.theme="dark"}catch(e){}
+function elfiaTheme(){var r=document.documentElement,d=r.dataset.theme==="dark";if(d)r.removeAttribute("data-theme");else r.dataset.theme="dark";try{localStorage.theme=d?"light":"dark"}catch(e){}}</script>
 </head>
 <body>
 <a href="#main" class="sr">Skip to content</a>
 <nav class="nav"><div class="wrap">
 <a href="index.html" class="brand">ELFIA</a><a href="index.html">Arcen 2026</a><a href="programme.html">What Awaits You</a><a href="lineup.html">Line-up</a><a href="map.html" aria-current="page">Map</a><a href="food.html">Food &amp; drink</a><a href="vendors.html">Vendors</a><a href="visit.html">Visitor information</a><a href="policy.html">Policy</a><a href="faq.html">FAQ</a><a href="team.html">Team</a>
-<a class="lang" href="../map.html" hreflang="nl" rel="alternate">NL</a>
+<a class="lang" href="../map.html" hreflang="nl" rel="alternate">NL</a><button class="theme-toggle" type="button" onclick="elfiaTheme()" aria-label="Switch between light and dark theme" title="Light / dark"></button>
 </div></nav>
 <main id="main">
 <header class="page-head"><div class="wrap"><h1>Grounds Map</h1><p>The official Elfia map: 13 themed areas and three embassies spread across Castle Gardens Arcen. Every name listed below so you can search it, read it on a small screen, or have it read aloud.</p></div></header><section><div class="wrap">
@@ -56,12 +58,12 @@
 </main>
 <footer><div class="wrap">
 <nav class="fnav"><a href="index.html">Arcen 2026</a><a href="programme.html">What Awaits You</a><a href="lineup.html">Line-up</a><a href="map.html">Map</a><a href="food.html">Food &amp; drink</a><a href="vendors.html">Vendors</a><a href="visit.html">Visitor information</a><a href="policy.html">Policy</a><a href="faq.html">FAQ</a><a href="team.html">Team</a></nav>
+<p class="disclaimer">This is not an official Elfia website. The official one is <a href="https://elfia.com" rel="noopener">elfia.com</a> — and it is <strong>SO</strong> bad that I went and built my own.</p>
 <p><strong style="font-family:var(--serif);letter-spacing:.1em;color:var(--gold)">ELFIA ARCEN</strong> ·
  19 &amp; 20 September 2026 · Castle Gardens Arcen, Lingsforterweg 26, 5944 BE Arcen</p>
 <p><a href="https://www.instagram.com/kingdomofelfia/" rel="noopener">Instagram</a> ·
  <a href="https://www.youtube.com/@kingdomofelfia" rel="noopener">YouTube</a> ·
  <a href="https://www.tiktok.com/@kingdomofelfia?lang=en" rel="noopener">TikTok</a></p>
-<p>© 2026 Elfia Pte Ltd. Licensed to Stelf B.V. All rights reserved.</p>
 </div></footer>
 </body>
 </html>

@@ -5,7 +5,8 @@ Context for anyone (human or agent) picking this repo up cold. `README.md` docum
 
 Site: a lean, information-only static rebuild of the Elfia website for **Elfia Arcen,
 19 & 20 September 2026**, Kasteeltuinen Arcen. Served at <https://3w3.nl/elfia>.
-No JavaScript, no frameworks, no webfonts, no build step at request time.
+No frameworks, no third-party requests, no build step at request time. The site is light
+by default like elfia.com; a dark theme is opt-in via a toggle in the nav.
 
 ## The one thing to understand first
 
@@ -74,11 +75,24 @@ The look borrows from elfia.com deliberately, but only what is ours to take:
   `.otf` from their own server: not copied, not hotlinked.
 * **Their palette**, read out of `styles.css`: cream `#EAE5D4`, beige `#FFFBE8`,
   tan `#D8D2BB`, red `#8E2F2C`, poster maroon `#4D1014`, gold `#F0D589`.
+* **Light by default.** `:root` carries the light palette and `:root[data-theme="dark"]` the
+  dark one — `prefers-color-scheme` is deliberately *not* consulted, so a visitor on a
+  dark-mode OS still gets the cream page the official site has. Dark is opt-in.
 * **Poster framing** — the double rule inside `.card` is our own CSS. Their equivalent is
   `border-image` off `ContentBorder.svg`; that SVG was not taken.
 
 Everything their site does that we deliberately don't: a JS loading screen that sits at 18%,
 client-side rendering of every list, Cookiebot, ~400 KB of script.
+
+### The one script
+
+A four-line inline script in every page head is the site's only JavaScript: it adds a `js`
+class to `<html>`, restores `localStorage.theme`, and defines `elfiaTheme()` for the nav
+button. It is inline and in the head on purpose — no extra request, and it runs before first
+paint so a returning dark-mode visitor never sees a flash of cream. Without JavaScript the
+toggle is `display:none` (via the `js` class) so no dead button is left behind, and the page
+stays light. `build/make-lineup.py` emits the same script; the other generators inherit it
+from their templates. Keep the three copies in sync.
 
 ## Traps
 

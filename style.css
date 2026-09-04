@@ -4,28 +4,29 @@
   font-weight:400; font-style:normal; font-display:swap;
 }
 /* Elfia Arcen — lean static site.
-   Palette taken from the official elfia.com stylesheet.
-   No frameworks, no webfonts, no JavaScript, no animation. */
+   Palette and display face taken from the official elfia.com stylesheet.
+   Light by default, like elfia.com; dark only when the visitor asks for it.
+   The only JavaScript on the site is the ~4-line theme toggle in each page head. */
 :root{
   --red:#8E2F2C; --red-dark:#6f2320;
-  --bg:#14110f; --bg2:#1c1815; --bg3:#241e1a; --line:#3a322b;
-  --ink:#efe7db; --dim:#b3a696; --gold:#d4a959; --gold2:#F0D589;
-  --accent:var(--gold2); --accent2:var(--gold); --btn:var(--red); --btn-hover:var(--red-dark);
-  --btn-ink:#fff; --ok:#7fa87a;
+  --bg:#EAE5D4; --bg2:#FFFBE8; --bg3:#DCD5BE; --line:#C7BDA1;
+  --ink:#2B1A15; --dim:#6E6052; --gold:#8a6216; --gold2:#5C3F0E;
+  --accent:#8E2F2C; --accent2:#4D1014; --btn:var(--red); --btn-hover:var(--red-dark);
+  --btn-ink:#fff; --ok:#3f6b3a; --no:#a63d26;
   --display:"IM Fell French Canon",Georgia,"Iowan Old Style",Palatino,serif;
   --serif:Georgia,"Iowan Old Style","Palatino Linotype",Palatino,"Times New Roman",serif;
   --sans:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
   --wrap:66rem;
-  --shadow:0 1px 2px rgba(0,0,0,.25), 0 4px 14px rgba(0,0,0,.18);
+  --shadow:0 1px 2px rgba(77,16,20,.07), 0 4px 14px rgba(77,16,20,.05);
+  color-scheme:light;
 }
-@media (prefers-color-scheme:light){
-  :root{
-    --bg:#EAE5D4; --bg2:#FFFBE8; --bg3:#DCD5BE; --line:#C7BDA1;
-    --ink:#2B1A15; --dim:#6E6052; --gold:#8a6216; --gold2:#5C3F0E;
-    --accent:#8E2F2C; --accent2:#4D1014; --btn:var(--red); --btn-hover:var(--red-dark);
-    --ok:#3f6b3a;
-    --shadow:0 1px 2px rgba(77,16,20,.07), 0 4px 14px rgba(77,16,20,.05);
-  }
+:root[data-theme="dark"]{
+  --bg:#14110f; --bg2:#1c1815; --bg3:#241e1a; --line:#3a322b;
+  --ink:#efe7db; --dim:#b3a696; --gold:#d4a959; --gold2:#F0D589;
+  --accent:var(--gold2); --accent2:var(--gold);
+  --ok:#7fa87a; --no:#d98b7a;
+  --shadow:0 1px 2px rgba(0,0,0,.25), 0 4px 14px rgba(0,0,0,.18);
+  color-scheme:dark;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:4.5rem;-webkit-text-size-adjust:100%}
@@ -63,6 +64,13 @@ hr{border:0;border-top:1px solid var(--line);margin:2rem 0}
 .nav a[aria-current=page]{color:var(--accent);background:var(--bg2);box-shadow:inset 0 -2px 0 var(--accent)}
 .nav a.lang{margin-left:.5rem;border:1px solid var(--line);color:var(--accent);font-size:.75rem;
             letter-spacing:.1em;padding:.28rem .55rem;flex:none}
+.theme-toggle{display:none;margin-left:.35rem;border:1px solid var(--line);background:var(--bg2);
+  color:var(--accent);font:inherit;font-size:.85rem;line-height:1;cursor:pointer;flex:none;
+  padding:.3rem .5rem;border-radius:5px}
+:root.js .theme-toggle{display:inline-block}
+.theme-toggle:hover{background:var(--bg3);color:var(--ink)}
+.theme-toggle::before{content:"\263E"}
+:root[data-theme="dark"] .theme-toggle::before{content:"\2600"}
 .nav a.lang:hover{background:var(--bg2);color:var(--ink)}
 
 /* hero */
@@ -120,8 +128,7 @@ details[open] summary{border-bottom:1px solid var(--line)}
 .note.warn{border-left-color:var(--red)}
 .note :last-child{margin-bottom:0}
 .yes{color:var(--ok);font-weight:600}
-.no{color:#d98b7a;font-weight:600}
-@media (prefers-color-scheme:light){.no{color:#a63d26}}
+.no{color:var(--no);font-weight:600}
 table{width:100%;border-collapse:collapse;font-size:.95rem}
 th,td{text-align:left;padding:.65rem .5rem;border-bottom:1px solid var(--line);vertical-align:top}
 th{font-size:.68rem;letter-spacing:.15em;text-transform:uppercase;color:var(--dim);font-weight:400}
@@ -323,4 +330,8 @@ footer{padding:2.75rem 0 3rem;color:var(--dim);font-size:.86rem;border-top:1px s
 footer a{color:var(--dim)}
 footer a:hover{color:var(--accent)}
 .fnav{display:flex;flex-wrap:wrap;gap:.35rem 1rem;margin-bottom:1.2rem}
+.disclaimer{border-left:3px solid var(--red);background:var(--bg);padding:.7rem 1rem;
+  border-radius:0 8px 8px 0;font-size:.88rem;color:var(--ink);max-width:47rem}
+.disclaimer strong{color:var(--red);font-weight:700}
+:root[data-theme="dark"] .disclaimer strong{color:var(--gold2)}
 @media (max-width:34rem){.body{padding-left:1.15rem}section{padding:2.25rem 0}}

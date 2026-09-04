@@ -2,7 +2,8 @@
 
 A stripped-down, information-only rebuild of the Elfia website, focused on the
 next edition: **Elfia Arcen, 19 & 20 September 2026** at the Kasteeltuinen Arcen.
-No ticketing, no JavaScript, no animation — just the practical information.
+No ticketing, no animation, no third-party requests — just the practical information.
+The only script is a four-line theme toggle, inline in each page head.
 
 ## Hosting
 
