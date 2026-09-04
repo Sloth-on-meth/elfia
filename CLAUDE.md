@@ -54,13 +54,31 @@ sh build/build-all.sh
 | `build/make-lineup.py` | builds `lineup.html` + `en/lineup.html` from scratch |
 | `build/make-food.py` | fills the markers in the food templates |
 | `build/make-vendors.py` | fills the markers in the vendors templates |
+| `build/make-programme.py` | builds `programme.html` + the home page's area teaser |
 | `build/make-ics.py` | builds both `.ics` files |
+| `build/realm-aliases.json` | folds superseded realm names onto the map's names |
 
 `make-lineup.py` prints any act with no label — add those to `lineup-labels.json` or they
 render without a chip and count as "workshops & more" in the filter.
 
-Pages **not** generated (hand-maintained): `index`, `programme`, `map`, `visit`, `policy`,
-`faq`, `team`, `history`. Adding a page means adding its nav entry to all the others.
+Pages **not** generated (hand-maintained): `map`, `visit`, `policy`, `faq`, `team`.
+Adding a page means adding its nav entry to all the others.
+
+## Styling
+
+The look borrows from elfia.com deliberately, but only what is ours to take:
+
+* **`IM Fell French Canon`** for headings and the wordmark — the display face the official
+  site uses, open licence, **self-hosted** in `fonts/` (37 KB, `font-display:swap` so first
+  paint never waits on it). Their other face, `Ode`, is a commercial MPF family served as
+  `.otf` from their own server: not copied, not hotlinked.
+* **Their palette**, read out of `styles.css`: cream `#EAE5D4`, beige `#FFFBE8`,
+  tan `#D8D2BB`, red `#8E2F2C`, poster maroon `#4D1014`, gold `#F0D589`.
+* **Poster framing** — the double rule inside `.card` is our own CSS. Their equivalent is
+  `border-image` off `ContentBorder.svg`; that SVG was not taken.
+
+Everything their site does that we deliberately don't: a JS loading screen that sits at 18%,
+client-side rendering of every list, Cookiebot, ~400 KB of script.
 
 ## Traps
 
@@ -73,9 +91,25 @@ Pages **not** generated (hand-maintained): `index`, `programme`, `map`, `visit`,
   data and must collide, hence `unicodedata.normalize` in every key function.
 - **Nav has 11 entries** and only just fits the 66rem wrap at desktop width; item font and
   padding were tightened for it. A twelfth entry overflows into the horizontal scroll.
+- **The API's realm list is not trustworthy.** It holds 20 entries: two are superseded
+  names kept alongside their replacements (Giostra Fortunia, Academy Hall — folded via
+  `realm-aliases.json`), three areas on the map are missing from it entirely (Border to
+  Fantasy, Bandits Creek, Elfia Academy), and several have a description but no stage, no
+  traders and no place on the map. `make-programme.py` uses the **map** as the spine and
+  labels the leftovers. `status`/`statusCode` do not discriminate — every entry is
+  `False`/`active`.
+- The 41 highlights *were* checked for stale past-edition entries: all were created between
+  Apr and Sep 2026 and none mention an earlier year. The old hand-written page did carry
+  stale acts (Sunfire Band, a 2025 ChelseaBoy blurb); regenerating removed them.
 - **The map is no longer the castle-gardens map.** Since 4 Sept 2026 it is the Elfia
-  festival map: 13 themed areas plus three embassies, no numbered locations. Anything
-  referencing pin numbers (`food.html` used to) is wrong.
+  festival map: 13 numbered themed areas plus three embassies. The old castle-gardens pin
+  numbers (1–40 plus buildings A–F) are gone; anything referencing those is wrong.
+  Facilities are icon-only on the image — catering, Elfia Elixir Bar, toilets (plus a
+  wheelchair-accessible variant), lockers, changing rooms, cosplay repair, Elfia Treasures,
+  first aid, an information point, a drinking-water tap and smoking areas. `map.html` is
+  hand-maintained and now carries a **facilities-by-area list read off the image**, so the
+  page still works for someone who cannot see or zoom the map — that is the whole point of
+  that page. Re-read the image and update that list whenever the map changes.
 - Filtering on every page is pure CSS `:has()` — Safari 15.4+, Chrome 105+, Firefox 121+.
   Older browsers show everything, which is the correct degradation.
 
@@ -105,10 +139,12 @@ Bandits Creek and Elfia Treasures are **deliberately excluded from the `.ics` fi
 (`EXCLUDED_STAGES` in `make-ics.py`): a roaming all-day act, quarter-hour line-dancing
 slots and signing sessions are calendar clutter.
 
+**4 Sept 2026, later** — `history.html` removed (not useful for a practical site), nav
+labels changed to Bezoekinformatie and Vendors, `programme.html` and the home page's realm
+teaser rebuilt from the API, and the styling brought closer to elfia.com (see above).
+
 ## Open
 
-- `programme.html` is stale: it lists ten realms and eleven highlights; the API has
-  **20 realms and 41 highlights**, and the ten names barely overlap.
 - `header` carries a live ticket banner (currently "Only 643 Legendary Elf Sunday Tickets
   Left!"). Nothing on the site shows it. It is the most visitor-relevant fact in the API
   and the most volatile — baking it into static HTML can go stale the wrong way.

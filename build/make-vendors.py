@@ -18,6 +18,16 @@ PROG = Path(sys.argv[2] if len(sys.argv) > 2 else ROOT / "build" / "programme.js
 EVENT = "Arcen Castle Gardens"
 STALLS = {"nl": "kramen", "en": "stalls"}
 
+ALIASES = {k: v for k, v in json.loads(
+    (Path(__file__).parent / "realm-aliases.json").read_text(encoding="utf-8")).items()
+    if not k.startswith("_")}
+
+
+def canon(realm):
+    """Fold superseded realm names onto the name printed on the official map."""
+    return ALIASES.get(re.sub(r"[^a-z0-9]", "", realm.lower()), realm)
+
+
 clean = lambda s: re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", html.unescape(str(s or "")))).strip()
 fold = lambda s: unicodedata.normalize("NFKD", s).encode("ascii", "ignore").decode()
 anchor = lambda s: re.sub(r"-+", "-", re.sub(r"[^a-z0-9]+", "-", fold(s).lower())).strip("-")
@@ -29,7 +39,7 @@ def read_exhibitors():
     out = []
     for r in ev["highlightImage"]:
         for e in sorted(r.get("exhibitors") or [], key=lambda x: x.get("sequence") or 0):
-            out.append(dict(name=clean(e["name"]), realm=clean(r["title"]),
+            out.append(dict(name=clean(e["name"]), realm=canon(clean(r["title"])),
                             desc=clean(e.get("description")), link=(e.get("link") or "").strip()))
     return out
 

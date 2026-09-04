@@ -1,12 +1,18 @@
+@font-face{
+  font-family:"IM Fell French Canon";
+  src:url("fonts/imfell-french-canon.woff2") format("woff2");
+  font-weight:400; font-style:normal; font-display:swap;
+}
 /* Elfia Arcen — lean static site.
    Palette taken from the official elfia.com stylesheet.
    No frameworks, no webfonts, no JavaScript, no animation. */
 :root{
   --red:#8E2F2C; --red-dark:#6f2320;
   --bg:#14110f; --bg2:#1c1815; --bg3:#241e1a; --line:#3a322b;
-  --ink:#efe7db; --dim:#b3a696; --gold:#d4a959; --gold2:#f0cd8a;
+  --ink:#efe7db; --dim:#b3a696; --gold:#d4a959; --gold2:#F0D589;
   --accent:var(--gold2); --accent2:var(--gold); --btn:var(--red); --btn-hover:var(--red-dark);
   --btn-ink:#fff; --ok:#7fa87a;
+  --display:"IM Fell French Canon",Georgia,"Iowan Old Style",Palatino,serif;
   --serif:Georgia,"Iowan Old Style","Palatino Linotype",Palatino,"Times New Roman",serif;
   --sans:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
   --wrap:66rem;
@@ -14,9 +20,9 @@
 }
 @media (prefers-color-scheme:light){
   :root{
-    --bg:#f6f1e6; --bg2:#fffdf8; --bg3:#efe7d6; --line:#ded2bd;
-    --ink:#241f19; --dim:#6b6152; --gold:#8a6216; --gold2:#6d4d10;
-    --accent:var(--gold2); --accent2:var(--gold); --btn:var(--red); --btn-hover:var(--red-dark);
+    --bg:#EAE5D4; --bg2:#FFFBE8; --bg3:#DCD5BE; --line:#C7BDA1;
+    --ink:#2B1A15; --dim:#6E6052; --gold:#8a6216; --gold2:#5C3F0E;
+    --accent:#8E2F2C; --accent2:#4D1014; --btn:var(--red); --btn-hover:var(--red-dark);
     --ok:#3f6b3a;
     --shadow:0 1px 2px rgba(77,16,20,.07), 0 4px 14px rgba(77,16,20,.05);
   }
@@ -28,10 +34,10 @@ body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.68 var(--sans);
      background-image:radial-gradient(ellipse at 50% -10%,color-mix(in srgb,var(--bg2) 80%,transparent),transparent 60%);
      background-attachment:fixed}
 .wrap{max-width:var(--wrap);margin:0 auto;padding:0 1.25rem}
-h1,h2,h3,h4{font-family:var(--serif);font-weight:400;line-height:1.18;margin:0 0 .5rem;
+h1,h2,h3,h4{font-family:var(--display);font-weight:400;line-height:1.18;margin:0 0 .5rem;
             letter-spacing:-.005em}
-h1{font-size:clamp(2rem,5.2vw,3.1rem)}
-h2{font-size:clamp(1.5rem,3vw,1.95rem);margin-top:0}
+h1{font-size:clamp(2.2rem,5.6vw,3.5rem);letter-spacing:.005em}
+h2{font-size:clamp(1.65rem,3.3vw,2.2rem);margin-top:0}
 h3{font-size:1.14rem;color:var(--accent)}
 h4{font-size:1rem;color:var(--ink)}
 p{margin:0 0 1rem} ul,ol{margin:0 0 1rem;padding-left:1.2rem} li{margin-bottom:.4rem}
@@ -49,7 +55,7 @@ hr{border:0;border-top:1px solid var(--line);margin:2rem 0}
 .nav .wrap{display:flex;gap:.1rem;align-items:center;min-height:3.5rem;
            overflow-x:auto;scrollbar-width:none}
 .nav .wrap::-webkit-scrollbar{display:none}
-.brand{font-family:var(--serif);font-size:1.3rem;letter-spacing:.18em;color:var(--accent);
+.brand{font-family:var(--display);font-size:1.3rem;letter-spacing:.18em;color:var(--accent);
        text-decoration:none;margin-right:auto;padding-right:.6rem;white-space:nowrap;font-weight:600}
 .nav a:not(.brand){color:var(--dim);text-decoration:none;font-size:.79rem;padding:.4rem .42rem;
                    border-radius:5px;white-space:nowrap}
@@ -67,7 +73,8 @@ hr{border:0;border-top:1px solid var(--line);margin:2rem 0}
 .hero h1{margin-bottom:.35rem}
 .hero .sub{font-family:var(--serif);font-size:clamp(1.05rem,2.4vw,1.35rem);color:var(--dim);
            font-style:italic;margin-bottom:1.9rem;max-width:46rem}
-.page-head{border-bottom:1px solid var(--line);padding:2.6rem 0 1.9rem;background:var(--bg2)}
+.page-head{border-bottom:1px solid var(--line);padding:2.6rem 0 1.9rem;background:var(--bg2);
+  box-shadow:inset 0 -4px 0 -3px var(--line)}
 .page-head p{color:var(--dim);max-width:47rem;margin-bottom:0}
 .srcnote{margin:1.15rem 0 0;padding:.72rem 1rem;background:var(--bg);border:1px solid var(--line);
   border-left:3px solid var(--gold);border-radius:0 8px 8px 0;font-size:.82rem;line-height:1.55;
@@ -89,7 +96,9 @@ section:last-of-type{border-bottom:0}
 .grid{display:grid;gap:1.15rem;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr))}
 .grid-2{grid-template-columns:repeat(auto-fit,minmax(19rem,1fr))}
 .card{background:var(--bg2);border:1px solid var(--line);border-radius:10px;padding:1.25rem;
-      box-shadow:var(--shadow)}
+      box-shadow:var(--shadow);position:relative}
+.card::after{content:"";position:absolute;inset:4px;border-radius:6px;pointer-events:none;
+      border:1px solid color-mix(in srgb,var(--line) 55%,transparent)}
 .card h3{margin-top:0}
 .card :last-child{margin-bottom:0}
 

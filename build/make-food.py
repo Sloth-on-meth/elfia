@@ -19,6 +19,16 @@ PROG = Path(sys.argv[2] if len(sys.argv) > 2 else ROOT / "build" / "programme.js
 EVENT = "Arcen Castle Gardens"
 LABELS = [("Vegan", "vegan"), ("Vegetarian", "veg"), ("Halal", "halal"), ("Gluten Free", "gf")]
 
+ALIASES = {k: v for k, v in json.loads(
+    (Path(__file__).parent / "realm-aliases.json").read_text(encoding="utf-8")).items()
+    if not k.startswith("_")}
+
+
+def canon(realm):
+    """Fold superseded realm names onto the name printed on the official map."""
+    return ALIASES.get(re.sub(r"[^a-z0-9]", "", realm.lower()), realm)
+
+
 clean = lambda s: re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", html.unescape(str(s or "")))).strip()
 
 COPY = {
@@ -43,7 +53,7 @@ def read_shops():
     out = []
     for r in ev["highlightImage"]:
         for s in sorted(r.get("shops") or [], key=lambda x: x.get("sequence") or 0):
-            out.append(dict(name=clean(s["name"]), realm=clean(r["title"]),
+            out.append(dict(name=clean(s["name"]), realm=canon(clean(r["title"])),
                             desc=clean(s.get("description")),
                             labels=[l["label"] for l in sorted(s.get("labels") or [],
                                                                key=lambda x: x["sequence"])]))

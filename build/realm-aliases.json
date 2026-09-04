@@ -1,0 +1,7 @@
+{
+  "_comment": "The API keeps superseded realm names alongside their replacements. Renamed on 4 Sept 2026; the old entries were never deleted and still carry content. Keys are normalised (lowercase, no punctuation); values are the canonical name as printed on the official 2026 map.",
+  "giostrafortunia": "La Piazza Dei Sogni",
+  "lapiazzadeisogni": "La Piazza Dei Sogni",
+  "academyhall": "Elfia Academy",
+  "elfiaacademy": "Elfia Academy"
+}
