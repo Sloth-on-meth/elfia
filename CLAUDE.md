@@ -126,6 +126,95 @@ toggle is `display:none` (via the `js` class) so no dead button is left behind, 
 stays light. `build/make-lineup.py` emits the same script; the other generators inherit it
 from their templates. Keep the three copies in sync.
 
+## Design sweep (4 Sept 2026)
+
+Measured, not eyeballed — a Playwright pass over all 20 pages at 320/768/1440 px computing
+contrast, font sizes, tap targets and overflow, plus a static pass over meta and headings.
+The audit's **first** run was wrong: `color-mix()` computes to `color(srgb 1 0.98 0.91)` and
+the parser divided those 0–1 values by 255, inventing contrast failures everywhere. If you
+re-run it, parse both `rgb()` and `color(srgb …)`.
+
+Fixed from that pass:
+
+* `hreflang` pointed at `https://elfia.nl/…` — the official site, where these pages do not
+  exist. Now `https://3w3.nl/elfia/…`, with `canonical`, Open Graph, Twitter card and
+  `theme-color` added to every page (link previews matter: the site gets shared on Reddit).
+* `index.html` still carried the **old map**: `alt` describing "40 genummerde tuinlocaties"
+  and intrinsic size 1600×1132 for an 1800×1273 image — wrong description and layout shift.
+* `.grid-2` had a 19rem minimum track, wider than a 320px viewport — horizontal overflow on
+  every page using it. All nine grid definitions now use `minmax(min(Xrem,100%),1fr)`.
+* Heading jumps: `vendors.html` h1→h3 (added an h2), `policy.html` h1→h4 (added a section h2
+  and demoted the stray h4).
+* Tap targets under 24×24: header nav links (23px), footer nav links, and standalone links
+  that fill their own paragraph (`p>a:only-child`).
+* Text below 11px in nine places — chips, times, counts, labels.
+* **Dark mode: the `.type.perf` chips were red on near-black, contrast 1.92.** Now a
+  `--perf` token, dark red in light mode and a light rose in dark.
+* A print stylesheet: the timetable prints as the per-stage list, chrome and provenance
+  blocks are dropped, external URLs are printed after their link.
+
+The 1×1 radio inputs in `.filters` still show up as "tap target too small". That is the
+intended pattern — the `<label>` is the target — so it is a known false positive.
+
+## "Nu gaande" density
+
+The panel is built to be read in one glance on a phone: one compact row per stage, 66px each,
+so all of them fit above the fold on a 360×640 screen. Stage label and end time share a line,
+the act is one truncated line, the progress bar is 3px, and the next act sits on a single line
+behind an arrow (the word "Hierna" is hidden on narrow screens — `font-size:0` plus a `→` in
+`::before` — which buys horizontal room for the title).
+
+`NOW_SKIP` in `make-lineup.py` keeps **Bandits Creek** and **Elfia Treasures** out of the
+panel, the same two stages `make-ics.py` leaves out of the calendars: a roaming all-day act
+and signing sessions are not what you plan the next hour around, and they crowded out the
+five stages that are. They are still in the timetable itself.
+
+**Watch for min-content overflow.** `grid-template-columns:1fr` has a min-content floor, so a
+`white-space:nowrap` title inside made the card 419px wide in a 390px viewport. It needs
+`minmax(0,1fr)` on the track plus `min-width:0` on the items. This is the second time this
+exact trap bit — see the `.grid-2` note in the design sweep.
+
+## The now-line
+
+`lineup.html` draws a red rule across the grid at the current time, with the time in a badge
+that fills the time gutter (and sticks to the left while the grid scrolls sideways). It is
+placed by grid row plus a sub-row `margin-top`, so it lands on the exact minute rather than
+snapping to the quarter. It only appears on the day that is actually today, and only inside
+that day's range — the same `Intl.DateTimeFormat` Europe/Amsterdam clock the "nu gaande"
+panel uses, and the same 60-second refresh. The grid carries `data-start` and `data-row` so
+the script needs no hard-coded geometry.
+
+To see it outside the event, fake the clock in the browser rather than editing the site:
+
+```js
+{const R=Date,F=new R("2026-09-19T14:00:00+02:00").getTime();
+ class D extends R{constructor(...a){if(!a.length)super(F);else super(...a)}
+   static now(){return F}} Date=D;}
+```
+
+## The timetable on a phone
+
+Below `64rem` the grid used to be replaced by the per-stage list, full stop. There is now a
+**Lijst / Rooster** switch (CSS-only radios, same pattern as the filters), defaulting to
+Rooster. In Rooster mode the
+grid scrolls horizontally inside `.tt-wide` with fixed 9.5rem columns and the time gutter
+`position:sticky; left:0`.
+
+Two things that cost real time and are worth knowing:
+
+* `z-index` on `.tt-e` was **dead code** — the rule sat on a `position:static` element. It is
+  now `position:relative; z-index:1`, which is what the rule always meant.
+* The time gutter appeared to have text bleeding through it. It did not. The 2px grid `gap`
+  between consecutive `.tt-t` cells let the column underneath show, and a 3× upscaled
+  screenshot smeared those two pixel rows into what looked like a legible line of text. Never
+  diagnose this kind of thing from a zoomed screenshot — sample the pixels. The cells now
+  carry `margin-bottom:-2px; padding-bottom:2px` to close the gap, verified by scanning the
+  rendered PNG for dark pixels left of the labels (zero).
+
+The map also fitted to 180% of the viewport inside a scroll box on phones, so it looked cut
+off with no affordance. It now fits the width, with an "open at full size" link for the
+phone's own pinch-zoom.
+
 ## Traps
 
 - **The API changed shape in early Sept 2026.** A slot's `activity` field now packs name

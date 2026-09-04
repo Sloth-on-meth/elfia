@@ -27,6 +27,9 @@ LABELS = json.loads(Path(sys.argv[3] if len(sys.argv) > 3 else "lineup-labels.js
 EVENT = "Arcen Castle Gardens"
 DAYS = ["Saturday", "Sunday"]
 DAY_DATES = ["2026-09-19", "2026-09-20"]
+# rondtrekkende acts en signeersessies horen niet in "nu gaande" — je plant er je dag niet
+# omheen, en ze verdringen de podia waar je wel iets aan hebt. Zelfde lijst als make-ics.py.
+NOW_SKIP = ["Bandits Creek", "Elfia Treasures"]
 # column order: the five original stages first, so returning visitors keep their bearings
 STAGE_ORDER = ["La Piazza Dei Sogni", "Folk Faire", "Music Court", "Bard's Theater",
                "Elfia Academy", "Bandits Creek", "Elfia Treasures"]
@@ -110,10 +113,15 @@ def build_day(day_acts, day_id):
         miss = " ".join("n-" + c for c in ("music", "show", "work") if c not in have)
         g.append(f'<div class="tt-h{" " + miss if miss else ""}" '
                  f'style="grid-column:{i};grid-row:1">{esc(st)}</div>')
+    # de tijdkolom loopt door per heel uur, zodat hij bij horizontaal scrollen
+    # een aaneengesloten band vormt in plaats van losse labels met gaten ertussen
     for q in range(quarters + 1):
         m = lo + q * 15
         if m % 60 == 0:
-            g.append(f'<div class="tt-t" style="grid-column:1;grid-row:{q + 2}">{m//60:02d}:00</div>')
+            end = min(q + 6, quarters + 2)
+            span = f'{q + 2}/{end}' if end > q + 2 else f'{q + 2}'
+            g.append(f'<div class="tt-t" style="grid-column:1;grid-row:{span}">'
+                     f'{m//60:02d}:00</div>')
 
     for i, st in enumerate(stages, start=2):
         for a in day_acts[st]:
@@ -130,7 +138,8 @@ def build_day(day_acts, day_id):
                      f'style="grid-column:{i};grid-row:{row(a["start"])}/{row(a["end"])}">'
                      f'<time>{a["start"]}–{a["end"]}</time><b>{esc(a["name"])}</b>{chip}{desc}</div>')
 
-    grid = (f'<div class="tt-grid" style="--cols:{len(stages)};'
+    grid = (f'<div class="tt-grid" data-start="{lo//60:02d}:{lo%60:02d}" data-row="{ROW}" '
+            f'style="--cols:{len(stages)};'
             f'grid-template-rows:auto repeat({quarters},{ROW}px)">' + "".join(g) + "</div>")
 
     lst = []
@@ -155,7 +164,7 @@ NOW_JS = r"""<script>
 (function(){
 var box=document.getElementById("nowbar"),grid=document.getElementById("nowgrid");
 if(!box||!grid)return;
-var L=__L__;
+var L=__L__,SKIP=__SKIP__;
 var days=[].slice.call(document.querySelectorAll("section[data-date]")).map(function(sec){
   var out={date:sec.dataset.date,stages:[]};
   [].forEach.call(sec.querySelectorAll(".tt-stage"),function(st){
@@ -164,11 +173,16 @@ var days=[].slice.call(document.querySelectorAll("section[data-date]")).map(func
       return {a:t[0].trim(),b:t[1].trim(),
               name:r.querySelector("b").textContent,
               tag:(r.querySelector("i")||{}).textContent||""};});
-    out.stages.push({name:st.querySelector("h3").textContent,acts:acts});});
+    var nm=st.querySelector("h3").textContent;
+    if(SKIP.indexOf(nm)<0)out.stages.push({name:nm,acts:acts});});
   return out;});
+var OV=(function(){try{var m=/[?&]nu=([^&#]+)/.exec(location.search);if(!m)return null;
+  var v=decodeURIComponent(m[1]).replace(" ","T");
+  if(/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}$/.test(v))v+=":00+02:00";
+  var d=new Date(v);return isNaN(d.getTime())?null:d;}catch(e){return null}})();
 function ams(){var f=new Intl.DateTimeFormat("sv-SE",{timeZone:"Europe/Amsterdam",
   year:"numeric",month:"2-digit",day:"2-digit",hour:"2-digit",minute:"2-digit",hour12:false});
-  var s=f.format(new Date()).replace(" ","T");return{d:s.slice(0,10),t:s.slice(11,16)};}
+  var s=f.format(OV||new Date()).replace(" ","T");return{d:s.slice(0,10),t:s.slice(11,16)};}
 function mins(x){return x.slice(0,2)*60+ +x.slice(3,5);}
 function esc(x){var e=document.createElement("span");e.textContent=x;return e.innerHTML;}
 function render(){
@@ -190,15 +204,34 @@ function render(){
       else if(!nxt&&mins(a.a)>now)nxt=a;});
     if(!cur&&!nxt)return;
     any=true;
-    var h='<article class="nowcard'+(cur?' on':'')+'"><h3>'+esc(st.name)+"</h3>";
+    var h='<article class="nowcard'+(cur?' on':'')+'"><h3>'+esc(st.name)+
+      (cur?"<time>"+cur.a+"–"+cur.b+"</time>":"")+"</h3>";
     if(cur){var p=Math.round((now-mins(cur.a))/(mins(cur.b)-mins(cur.a))*100);
-      h+='<p class="nowact"><b>'+esc(cur.name)+"</b><time>"+cur.a+"–"+cur.b+"</time></p>"+
+      h+='<p class="nowact"><b>'+esc(cur.name)+"</b></p>"+
          '<div class="nowbarline"><i style="width:'+p+'%"></i></div>';}
     else h+='<p class="nowfree">'+L.free+"</p>";
-    if(nxt)h+='<p class="nownext"><span>'+L.next+"</span> "+esc(nxt.name)+" <time>"+nxt.a+"</time></p>";
+    if(nxt)h+='<p class="nownext"><span>'+L.next+"</span><b>"+esc(nxt.name)+"</b><time>"+nxt.a+"</time></p>";
     cards.push(h+"</article>");});
   grid.innerHTML=any?cards.join(""):'<p class="nowmsg">'+L.nothing+"</p>";
-  box.hidden=false;}
+  if(OV)grid.insertAdjacentHTML("afterbegin",'<p class="nowpreview">'+L.preview.replace("{t}",n.d+" "+n.t)+"</p>");
+  box.hidden=false;
+  line(n);}
+function line(n){
+  document.querySelectorAll(".tt-nowline").forEach(function(e){e.remove();});
+  var sec=document.querySelector('section[data-date="'+n.d+'"]');
+  if(!sec)return;
+  var g=sec.querySelector(".tt-grid"); if(!g)return;
+  var lo=mins(g.dataset.start),row=+g.dataset.row||29,now=mins(n.t);
+  var rows=(getComputedStyle(g).gridTemplateRows||"").split(" ").length-1;
+  var q=(now-lo)/15;
+  if(q<0||q>rows)return;
+  var el=document.createElement("div");
+  el.className="tt-nowline";
+  el.style.gridColumn="1/-1";
+  el.style.gridRow=String(Math.floor(q)+2);
+  el.style.marginTop=((q-Math.floor(q))*row).toFixed(1)+"px";
+  el.innerHTML='<span>'+n.t+'</span>';
+  g.appendChild(el);}
 render();setInterval(render,60000);
 })();
 </script>"""
@@ -226,7 +259,7 @@ SRCNOTE = {
        'Elfia publication. The genre chips are ours.</p>',
 }
 
-NOW_UI = {'nl': {'h': 'Nu gaande', 'next': 'Hierna', 'nothing': 'Vandaag staat er niets meer op het programma.', 'soon': 'Elfia Arcen begint over', 'days': 'dagen', 'day': 'dag', 'hours': 'uur', 'over': 'Elfia Arcen 2026 zit erop. Tot de volgende editie!', 'free': 'Niets bezig op dit podium', 'live': 'bezig'}, 'en': {'h': 'On now', 'next': 'Up next', 'nothing': 'Nothing further on the programme today.', 'soon': 'Elfia Arcen starts in', 'days': 'days', 'day': 'day', 'hours': 'hours', 'over': 'Elfia Arcen 2026 is over. See you next edition!', 'free': 'Nothing on at this stage', 'live': 'live'}}
+NOW_UI = {'nl': {'preview': 'Voorbeeldweergave — de klok staat op {t}. Gewone bezoekers zien de echte tijd.', 'h': 'Nu gaande', 'next': 'Hierna', 'nothing': 'Vandaag staat er niets meer op het programma.', 'soon': 'Elfia Arcen begint over', 'days': 'dagen', 'day': 'dag', 'hours': 'uur', 'over': 'Elfia Arcen 2026 zit erop. Tot de volgende editie!', 'free': 'Niets bezig op dit podium', 'live': 'bezig'}, 'en': {'preview': 'Preview — the clock is set to {t}. Ordinary visitors see the real time.', 'h': 'On now', 'next': 'Up next', 'nothing': 'Nothing further on the programme today.', 'soon': 'Elfia Arcen starts in', 'days': 'days', 'day': 'day', 'hours': 'hours', 'over': 'Elfia Arcen 2026 is over. See you next edition!', 'free': 'Nothing on at this stage', 'live': 'live'}}
 
 T = {
  "nl": dict(file="lineup.html", lang="nl", pre="", other="en/lineup.html", otherlang="en",
@@ -236,6 +269,7 @@ T = {
    h1="Programma",
    head="Alle optredens per podium en tijdslot. Op een smal scherm wordt het rooster een lijst per podium.",
    tabs=["Zaterdag 19 sept", "Zondag 20 sept"], az="Muziek A–Z", agenda="In je agenda",
+   view=["Lijst","Rooster"], viewlabel="Weergave", swipe="Veeg opzij om alle podia te zien",
    flabel="Filter op soort", f=["Alles", "Muziek", "Shows", "Workshops &amp; meer"],
    dayh=["Zaterdag 19 september", "Zondag 20 september"], days=["Za", "Zo"],
    stages="podia", count=["{} programmaonderdelen", "{} muziekoptredens", "{} shows",
@@ -258,6 +292,7 @@ T = {
    h1="Line-up",
    head="Every act by stage and time slot. On a narrow screen the grid becomes a list per stage.",
    tabs=["Saturday 19 Sept", "Sunday 20 Sept"], az="Music A–Z", agenda="Add to calendar",
+   view=["List","Grid"], viewlabel="View", swipe="Swipe sideways to see every stage",
    flabel="Filter by type", f=["All", "Music", "Shows", "Workshops &amp; more"],
    dayh=["Saturday 19 September", "Sunday 20 September"], days=["Sat", "Sun"],
    stages="stages", count=["{} items", "{} music sets", "{} shows", "{} workshops &amp; more"],
@@ -303,7 +338,8 @@ def build(t, days):
             f'<section id="{meta["id"]}" data-date="{DAY_DATES[i]}">'
             f'<div class="wrap">\n  <h2>{t["dayh"][i]}</h2>\n'
             f'  <p class="lede">{meta["stages"]} {t["stages"]} · {spans} · {meta["span"]}</p>\n'
-            f'</div><div class="wrap tt-wide">{grid}</div><div class="wrap">{lst}</div></section>')
+            f'</div><div class="wrap"><p class="swipehint">{t["swipe"]}</p></div>'
+            f'<div class="wrap tt-wide">{grid}</div><div class="wrap">{lst}</div></section>')
 
     # music A–Z
     uniq = {}
@@ -329,6 +365,10 @@ def build(t, days):
         f'\n   <input type="radio" name="tt-filter" id="f-{i}"{" checked" if i == "all" else ""}>'
         f'<label for="f-{i}">{lbl} <b>{totals[i]}</b></label>'
         for i, lbl in zip(fids, t["f"]))
+    views = "".join(
+        f'\n   <input type="radio" name="tt-view" id="v-{k}"{" checked" if k == "grid" else ""}>'
+        f'<label for="v-{k}">{lbl}</label>'
+        for k, lbl in zip(("list", "grid"), t["view"]))
     tabs = "".join(f'\n   <a href="#day{i+1}">{x}</a>' for i, x in enumerate(t["tabs"]))
     tabs += f'\n   <a href="#muziek">{t["az"]}</a>\n   <a href="#agenda">{t["agenda"]}</a>'
     howto = "".join(f'<div class="card"><h3>{h}</h3><p>{b}</p></div>' for h, b in t["ag_cards"])
@@ -338,7 +378,12 @@ def build(t, days):
     nowbar = ('<section id="nowbar" class="nowbar" hidden><div class="wrap">\n'
               f'  <h2>{NOW_UI[t["lang"]]["h"]}</h2>\n'
               '  <div class="nowgrid" id="nowgrid"></div>\n</div></section>')
-    now_js = NOW_JS.replace("__L__", json.dumps(NOW_UI[t["lang"]], ensure_ascii=False))
+    now_js = (NOW_JS.replace("__L__", json.dumps(NOW_UI[t["lang"]], ensure_ascii=False))
+                    .replace("__SKIP__", json.dumps(NOW_SKIP)))
+    canon = ("https://3w3.nl/elfia/lineup.html" if t["lang"] == "nl"
+             else "https://3w3.nl/elfia/en/lineup.html")
+    oglocale = "nl_NL" if t["lang"] == "nl" else "en_GB"
+    title_plain = t["title"]
 
     return f"""<!doctype html>
 <html lang="{t['lang']}">
@@ -347,9 +392,23 @@ def build(t, days):
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{t['title']}</title>
 <meta name="description" content="{t['metadesc']}">
+<link rel="canonical" href="{canon}">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Elfia Arcen 2026 — onofficieel">
+<meta property="og:locale" content="{oglocale}">
+<meta property="og:url" content="{canon}">
+<meta property="og:title" content="{title_plain}">
+<meta property="og:description" content="{t['metadesc']}">
+<meta property="og:image" content="https://3w3.nl/elfia/arcen-map.webp">
+<meta property="og:image:type" content="image/webp">
+<meta property="og:image:width" content="1800">
+<meta property="og:image:height" content="1273">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#EAE5D4" media="(prefers-color-scheme:light)">
+<meta name="theme-color" content="#14110f" media="(prefers-color-scheme:dark)">
 <link rel="stylesheet" href="{p}style.css">
-<link rel="alternate" hreflang="nl" href="https://elfia.nl/lineup.html">
-<link rel="alternate" hreflang="en" href="https://elfia.nl/en/lineup.html">
+<link rel="alternate" hreflang="nl" href="https://3w3.nl/elfia/lineup.html">
+<link rel="alternate" hreflang="en" href="https://3w3.nl/elfia/en/lineup.html">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ctext y='26' font-size='26'%3E%F0%9F%8F%B0%3C/text%3E%3C/svg%3E">
 {theme}
 </head>
@@ -361,6 +420,8 @@ def build(t, days):
   <div class="daytabs">{tabs}
   </div>
   <div class="filters" role="group" aria-label="{t['flabel']}">{pills}
+  </div>
+  <div class="viewtabs" role="group" aria-label="{t['viewlabel']}">{views}
   </div>
   <p class="icsline">{t['ics_lead'].format(totals['music'])} <a class="btn" href="{p}elfia-2026-muziek.ics" type="text/calendar" download>↓ {t['ics_music']}</a> <a class="btn ghost" href="{p}elfia-2026-programma.ics" type="text/calendar" download>↓ {t['ics_all']}</a></p>
   <p class="note warn">{t['warn']}</p>
