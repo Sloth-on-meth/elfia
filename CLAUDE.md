@@ -78,13 +78,45 @@ The look borrows from elfia.com deliberately, but only what is ours to take:
 * **Light by default.** `:root` carries the light palette and `:root[data-theme="dark"]` the
   dark one — `prefers-color-scheme` is deliberately *not* consulted, so a visitor on a
   dark-mode OS still gets the cream page the official site has. Dark is opt-in.
+* **Ornament layer** (Sept 2026): a paper-grain background (inline SVG turbulence, ~330 bytes,
+  no request), a fleuron `❦` after every top-level `h2` plus a hairline rule, corner ticks on
+  `.card`, notched `clip-path` on `.btn`, a four-corner frame around the hero, and the
+  timetable's stage headers in the display face. All scoped so the dense pages — the 7-column
+  grid, the 124 vendor cards — stay calm. **A drop cap was tried and removed**: several page
+  ledes start with a digit ("13 themagebieden", "124 kramen") and `::first-letter` turns that
+  into a stray floating character.
 * **Poster framing** — the double rule inside `.card` is our own CSS. Their equivalent is
   `border-image` off `ContentBorder.svg`; that SVG was not taken.
 
 Everything their site does that we deliberately don't: a JS loading screen that sits at 18%,
 client-side rendering of every list, Cookiebot, ~400 KB of script.
 
-### The one script
+### Scripts
+
+Two, both inline, both degrade to nothing:
+
+* the theme toggle (below);
+* **“Nu gaande” on `lineup.html`** — a panel above the timetable that reads the `.tt-row`
+  entries straight out of the page (so it cannot drift from the schedule), works out what is
+  playing on each stage and what follows, and draws a progress bar through the current set.
+  It reads the clock via `Intl.DateTimeFormat` with `timeZone: "Europe/Amsterdam"`, so it is
+  correct for a visitor whose device is in another zone — verified with the browser set to
+  America/New_York. Four states: countdown before, live during, "nothing further today", and
+  a sign-off after. The section carries `hidden` in the HTML and JS removes it, so without
+  JavaScript it never appears. Day dates live in `DAY_DATES` in `make-lineup.py`;
+* a ~10-line live search on `vendors.html` — 124 stalls is past the point where scrolling
+  works, and CSS `:has()` cannot match text. It filters `.ven` cards, hides realm blocks that
+  end up empty, filters the A–Z list and reports a count. The input is `display:none` until the
+  `js` class lands, so without JavaScript the full list is simply there.
+
+* **the nav** — below `60rem` the eleven links collapse into a hamburger. `<button>` with
+  `aria-expanded` and `aria-controls`, a 44×44 target, Escape closes it and returns focus to
+  the button, a click outside or on a link closes it, and resizing past the breakpoint resets
+  it. Closed means `display:none`, so the links are not reachable by keyboard while hidden.
+  The bar-to-X animation sits behind `prefers-reduced-motion`. Without JavaScript the button
+  never appears and the menu falls back to the horizontally scrolling row it was before.
+
+### The theme toggle
 
 A four-line inline script in every page head is the site's only JavaScript: it adds a `js`
 class to `<html>`, restores `localStorage.theme`, and defines `elfiaTheme()` for the nav
@@ -110,8 +142,9 @@ from their templates. Keep the three copies in sync.
   do not write it from memory.
 - **Name normalisation folds diacritics.** `Żniwa` and `Zniwa` both appear in the source
   data and must collide, hence `unicodedata.normalize` in every key function.
-- **Nav has 11 entries** and only just fits the 66rem wrap at desktop width; item font and
-  padding were tightened for it. A twelfth entry overflows into the horizontal scroll.
+- **Nav has 11 entries.** They fit the 66rem wrap down to 1024px; below `60rem` the hamburger
+  takes over. Verified at 1440/1280/1024/900/760/390 with no overflow at any of them. A
+  twelfth entry would need the breakpoint raised.
 - **The API's realm list is not trustworthy.** It holds 20 entries: two are superseded
   names kept alongside their replacements (Giostra Fortunia, Academy Hall — folded via
   `realm-aliases.json`), three areas on the map are missing from it entirely (Border to

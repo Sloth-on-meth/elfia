@@ -10,16 +10,18 @@
 <link rel="alternate" hreflang="en" href="https://elfia.nl/en/vendors.html">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ctext y='26' font-size='26'%3E%F0%9F%8F%B0%3C/text%3E%3C/svg%3E">
 <script>document.documentElement.classList.add("js");try{if(localStorage.theme==="dark")document.documentElement.dataset.theme="dark"}catch(e){}
-function elfiaTheme(){var r=document.documentElement,d=r.dataset.theme==="dark";if(d)r.removeAttribute("data-theme");else r.dataset.theme="dark";try{localStorage.theme=d?"light":"dark"}catch(e){}}</script>
+function elfiaTheme(){var r=document.documentElement,d=r.dataset.theme==="dark";if(d)r.removeAttribute("data-theme");else r.dataset.theme="dark";try{localStorage.theme=d?"light":"dark"}catch(e){}}
+function elfiaNav(){var b=document.querySelector(".navtoggle"),m=document.getElementById("navmenu");if(!b||!m)return;var R=document.documentElement;function set(o){b.setAttribute("aria-expanded",o?"true":"false");R.classList.toggle("nav-open",o);}b.addEventListener("click",function(){set(b.getAttribute("aria-expanded")!=="true");});m.addEventListener("click",function(e){if(e.target.closest("a"))set(false);});document.addEventListener("keydown",function(e){if(e.key==="Escape"&&b.getAttribute("aria-expanded")==="true"){set(false);b.focus();}});document.addEventListener("click",function(e){if(!e.target.closest(".nav"))set(false);});addEventListener("resize",function(){if(innerWidth>960)set(false);});}if(document.readyState!=="loading")elfiaNav();else document.addEventListener("DOMContentLoaded",elfiaNav);</script>
 </head>
 <body>
 <a href="#main" class="sr">Naar de inhoud</a>
 <nav class="nav"><div class="wrap">
-<a href="index.html" class="brand">ELFIA</a><a href="index.html">Arcen 2026</a><a href="programme.html">Wat je te wachten staat</a><a href="lineup.html">Programma</a><a href="map.html">Plattegrond</a><a href="food.html">Eten &amp; drinken</a><a href="vendors.html" aria-current="page">Vendors</a><a href="visit.html">Bezoekinformatie</a><a href="policy.html">Huisregels</a><a href="faq.html">FAQ</a><a href="team.html">Team</a>
+<a href="index.html" class="brand">ELFIA</a><button class="navtoggle" type="button" aria-expanded="false" aria-controls="navmenu" aria-label="Menu"><span></span></button><div class="navmenu" id="navmenu"><a href="index.html">Arcen 2026</a><a href="programme.html">Wat je te wachten staat</a><a href="lineup.html">Programma</a><a href="map.html">Plattegrond</a><a href="food.html">Eten &amp; drinken</a><a href="vendors.html" aria-current="page">Vendors</a><a href="visit.html">Bezoekinformatie</a><a href="policy.html">Huisregels</a><a href="faq.html">FAQ</a><a href="team.html">Team</a></div>
 <a class="lang" href="en/vendors.html" hreflang="en" rel="alternate">EN</a><button class="theme-toggle" type="button" onclick="elfiaTheme()" aria-label="Wissel tussen licht en donker thema" title="Licht / donker"></button>
 </div></nav>
 <main id="main">
-<header class="page-head"><div class="wrap"><h1>Vendors</h1><p>124 kramen, verdeeld over 10 rijken. Spring naar een rijk of scroll erdoorheen — de omschrijvingen komen van de organisatie.</p><p class="srcnote"><strong>Waar komt dit vandaan?</strong> Deze lijst komt rechtstreeks uit de programma-API van Elfia en is ongeredigeerd overgenomen — namen, omschrijvingen en indeling zijn precies zoals de organisatie ze aanlevert. Elfia toont deze gegevens zelf nergens op de site, dus er is geen officiële pagina om het tegen te controleren. Het kan onvolledig of verouderd zijn en tot aan het evenement nog wijzigen. Dit is geen officiële uitgave van Elfia.</p></div></header><section style="padding-bottom:0;border:0"><div class="wrap">
+<header class="page-head"><div class="wrap"><h1>Vendors</h1><p>124 kramen, verdeeld over 10 rijken. Let op: dit zijn de marktrijken van de organisatie, niet de 13 genummerde gebieden van de <a href="map.html">plattegrond</a> — zie <a href="programme.html">Wat je te wachten staat</a>. Spring naar een rijk of scroll erdoorheen; de omschrijvingen komen van de organisatie.</p><p class="srcnote"><strong>Waar komt dit vandaan?</strong> Deze lijst komt rechtstreeks uit de programma-API van Elfia en is ongeredigeerd overgenomen — namen, omschrijvingen en indeling zijn precies zoals de organisatie ze aanlevert. Elfia toont deze gegevens zelf nergens op de site, dus er is geen officiële pagina om het tegen te controleren. Het kan onvolledig of verouderd zijn en tot aan het evenement nog wijzigen. Dit is geen officiële uitgave van Elfia.</p></div></header><section style="padding-bottom:0;border:0"><div class="wrap">
+  <p class="vsearch"><label for="vq">Zoek een kraam</label><input type="search" id="vq" placeholder="naam of trefwoord…" autocomplete="off" aria-describedby="vqn"><span id="vqn" aria-live="polite"></span></p>
   <p class="jumplabel">Spring naar een rijk</p>
   <div class="daytabs jumps">
    <a href="#la-piazza-dei-sogni">La Piazza Dei Sogni <b>6</b></a>
@@ -51,5 +53,20 @@ function elfiaTheme(){var r=document.documentElement,d=r.dataset.theme==="dark";
  <a href="https://www.youtube.com/@kingdomofelfia" rel="noopener">YouTube</a> ·
  <a href="https://www.tiktok.com/@kingdomofelfia?lang=en" rel="noopener">TikTok</a></p>
 </div></footer>
+<script>
+(function(){var q=document.getElementById("vq");if(!q)return;
+var norm=function(s){return s.normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase()};
+var cards=[].slice.call(document.querySelectorAll(".ven")),
+    blocks=[].slice.call(document.querySelectorAll(".realmblock")),
+    az=[].slice.call(document.querySelectorAll(".azlist li")),
+    out=document.getElementById("vqn");
+cards.concat(az).forEach(function(el){el._t=norm(el.textContent)});
+function run(){var v=norm(q.value.trim()),n=0;
+ cards.forEach(function(c){var m=!v||c._t.indexOf(v)>-1;c.hidden=!m;if(m)n++});
+ blocks.forEach(function(b){b.hidden=!b.querySelector(".ven:not([hidden])")});
+ az.forEach(function(l){l.hidden=!!v&&l._t.indexOf(v)<0});
+ out.textContent=v?(n?n+" van "+cards.length:"niets gevonden"):"";}
+q.addEventListener("input",run);})();
+</script>
 </body>
 </html>

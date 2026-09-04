@@ -10,12 +10,13 @@
 <link rel="alternate" hreflang="en" href="https://elfia.nl/en/policy.html">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ctext y='26' font-size='26'%3E%F0%9F%8F%B0%3C/text%3E%3C/svg%3E">
 <script>document.documentElement.classList.add("js");try{if(localStorage.theme==="dark")document.documentElement.dataset.theme="dark"}catch(e){}
-function elfiaTheme(){var r=document.documentElement,d=r.dataset.theme==="dark";if(d)r.removeAttribute("data-theme");else r.dataset.theme="dark";try{localStorage.theme=d?"light":"dark"}catch(e){}}</script>
+function elfiaTheme(){var r=document.documentElement,d=r.dataset.theme==="dark";if(d)r.removeAttribute("data-theme");else r.dataset.theme="dark";try{localStorage.theme=d?"light":"dark"}catch(e){}}
+function elfiaNav(){var b=document.querySelector(".navtoggle"),m=document.getElementById("navmenu");if(!b||!m)return;var R=document.documentElement;function set(o){b.setAttribute("aria-expanded",o?"true":"false");R.classList.toggle("nav-open",o);}b.addEventListener("click",function(){set(b.getAttribute("aria-expanded")!=="true");});m.addEventListener("click",function(e){if(e.target.closest("a"))set(false);});document.addEventListener("keydown",function(e){if(e.key==="Escape"&&b.getAttribute("aria-expanded")==="true"){set(false);b.focus();}});document.addEventListener("click",function(e){if(!e.target.closest(".nav"))set(false);});addEventListener("resize",function(){if(innerWidth>960)set(false);});}if(document.readyState!=="loading")elfiaNav();else document.addEventListener("DOMContentLoaded",elfiaNav);</script>
 </head>
 <body>
 <a href="#main" class="sr">Skip to content</a>
 <nav class="nav"><div class="wrap">
-<a href="index.html" class="brand">ELFIA</a><a href="index.html">Arcen 2026</a><a href="programme.html">What Awaits You</a><a href="lineup.html">Line-up</a><a href="map.html">Map</a><a href="food.html">Food &amp; drink</a><a href="vendors.html">Vendors</a><a href="visit.html">Visitor information</a><a href="policy.html" aria-current="page">Policy</a><a href="faq.html">FAQ</a><a href="team.html">Team</a>
+<a href="index.html" class="brand">ELFIA</a><button class="navtoggle" type="button" aria-expanded="false" aria-controls="navmenu" aria-label="Menu"><span></span></button><div class="navmenu" id="navmenu"><a href="index.html">Arcen 2026</a><a href="programme.html">What Awaits You</a><a href="lineup.html">Line-up</a><a href="map.html">Map</a><a href="food.html">Food &amp; drink</a><a href="vendors.html">Vendors</a><a href="visit.html">Visitor information</a><a href="policy.html" aria-current="page">Policy</a><a href="faq.html">FAQ</a><a href="team.html">Team</a></div>
 <a class="lang" href="../policy.html" hreflang="nl" rel="alternate">NL</a><button class="theme-toggle" type="button" onclick="elfiaTheme()" aria-label="Switch between light and dark theme" title="Light / dark"></button>
 </div></nav>
 <main id="main">

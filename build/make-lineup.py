@@ -26,6 +26,7 @@ LABELS = json.loads(Path(sys.argv[3] if len(sys.argv) > 3 else "lineup-labels.js
 
 EVENT = "Arcen Castle Gardens"
 DAYS = ["Saturday", "Sunday"]
+DAY_DATES = ["2026-09-19", "2026-09-20"]
 # column order: the five original stages first, so returning visitors keep their bearings
 STAGE_ORDER = ["La Piazza Dei Sogni", "Folk Faire", "Music Court", "Bard's Theater",
                "Elfia Academy", "Bandits Creek", "Elfia Treasures"]
@@ -150,12 +151,65 @@ def build_day(day_acts, day_id):
     return grid, '<div class="tt-list">' + "".join(lst) + "</div>", meta
 
 
+NOW_JS = r"""<script>
+(function(){
+var box=document.getElementById("nowbar"),grid=document.getElementById("nowgrid");
+if(!box||!grid)return;
+var L=__L__;
+var days=[].slice.call(document.querySelectorAll("section[data-date]")).map(function(sec){
+  var out={date:sec.dataset.date,stages:[]};
+  [].forEach.call(sec.querySelectorAll(".tt-stage"),function(st){
+    var acts=[].slice.call(st.querySelectorAll(".tt-row")).map(function(r){
+      var t=r.querySelector("time").textContent.split("–");
+      return {a:t[0].trim(),b:t[1].trim(),
+              name:r.querySelector("b").textContent,
+              tag:(r.querySelector("i")||{}).textContent||""};});
+    out.stages.push({name:st.querySelector("h3").textContent,acts:acts});});
+  return out;});
+function ams(){var f=new Intl.DateTimeFormat("sv-SE",{timeZone:"Europe/Amsterdam",
+  year:"numeric",month:"2-digit",day:"2-digit",hour:"2-digit",minute:"2-digit",hour12:false});
+  var s=f.format(new Date()).replace(" ","T");return{d:s.slice(0,10),t:s.slice(11,16)};}
+function mins(x){return x.slice(0,2)*60+ +x.slice(3,5);}
+function esc(x){var e=document.createElement("span");e.textContent=x;return e.innerHTML;}
+function render(){
+  var n=ams(),today=null;
+  for(var i=0;i<days.length;i++)if(days[i].date===n.d)today=days[i];
+  if(!today){
+    var first=days[0].date,last=days[days.length-1].date,html;
+    if(n.d>last){html='<p class="nowmsg">'+L.over+'</p>';}
+    else{var ms=Date.parse(first+"T10:00:00+02:00")-Date.parse(n.d+"T"+n.t+":00+02:00");
+      var dd=Math.floor(ms/864e5),hh=Math.floor(ms%864e5/36e5);
+      html='<p class="nowmsg"><strong>'+L.soon+' '+dd+' '+(dd===1?L.day:L.days)+
+           (dd<3?' '+L.hours.replace(/^/,hh+" "):"")+'</strong></p>';}
+    grid.innerHTML=html;box.hidden=false;return;}
+  var now=mins(n.t),cards=[],any=false;
+  today.stages.forEach(function(st){
+    var cur=null,nxt=null;
+    st.acts.forEach(function(a){
+      if(mins(a.a)<=now&&now<mins(a.b))cur=a;
+      else if(!nxt&&mins(a.a)>now)nxt=a;});
+    if(!cur&&!nxt)return;
+    any=true;
+    var h='<article class="nowcard'+(cur?' on':'')+'"><h3>'+esc(st.name)+"</h3>";
+    if(cur){var p=Math.round((now-mins(cur.a))/(mins(cur.b)-mins(cur.a))*100);
+      h+='<p class="nowact"><b>'+esc(cur.name)+"</b><time>"+cur.a+"–"+cur.b+"</time></p>"+
+         '<div class="nowbarline"><i style="width:'+p+'%"></i></div>';}
+    else h+='<p class="nowfree">'+L.free+"</p>";
+    if(nxt)h+='<p class="nownext"><span>'+L.next+"</span> "+esc(nxt.name)+" <time>"+nxt.a+"</time></p>";
+    cards.push(h+"</article>");});
+  grid.innerHTML=any?cards.join(""):'<p class="nowmsg">'+L.nothing+"</p>";
+  box.hidden=false;}
+render();setInterval(render,60000);
+})();
+</script>"""
+
 THEME_SCRIPT = (
     '<script>document.documentElement.classList.add("js");'
     'try{if(localStorage.theme==="dark")document.documentElement.dataset.theme="dark"}catch(e){}\n'
     'function elfiaTheme(){var r=document.documentElement,d=r.dataset.theme==="dark";'
     'if(d)r.removeAttribute("data-theme");else r.dataset.theme="dark";'
-    'try{localStorage.theme=d?"light":"dark"}catch(e){}}</script>')
+    'try{localStorage.theme=d?"light":"dark"}catch(e){}}'
+    '\nfunction elfiaNav(){var b=document.querySelector(".navtoggle"),m=document.getElementById("navmenu");if(!b||!m)return;var R=document.documentElement;function set(o){b.setAttribute("aria-expanded",o?"true":"false");R.classList.toggle("nav-open",o);}b.addEventListener("click",function(){set(b.getAttribute("aria-expanded")!=="true");});m.addEventListener("click",function(e){if(e.target.closest("a"))set(false);});document.addEventListener("keydown",function(e){if(e.key==="Escape"&&b.getAttribute("aria-expanded")==="true"){set(false);b.focus();}});document.addEventListener("click",function(e){if(!e.target.closest(".nav"))set(false);});addEventListener("resize",function(){if(innerWidth>960)set(false);});}if(document.readyState!=="loading")elfiaNav();else document.addEventListener("DOMContentLoaded",elfiaNav);''</script>')
 
 SRCNOTE = {
  "nl": '<p class="srcnote"><strong>Waar komt dit vandaan?</strong> Deze lijst komt rechtstreeks '
@@ -171,6 +225,8 @@ SRCNOTE = {
        'incomplete or out of date and can still change before the event. This is not an official '
        'Elfia publication. The genre chips are ours.</p>',
 }
+
+NOW_UI = {'nl': {'h': 'Nu gaande', 'next': 'Hierna', 'nothing': 'Vandaag staat er niets meer op het programma.', 'soon': 'Elfia Arcen begint over', 'days': 'dagen', 'day': 'dag', 'hours': 'uur', 'over': 'Elfia Arcen 2026 zit erop. Tot de volgende editie!', 'free': 'Niets bezig op dit podium', 'live': 'bezig'}, 'en': {'h': 'On now', 'next': 'Up next', 'nothing': 'Nothing further on the programme today.', 'soon': 'Elfia Arcen starts in', 'days': 'days', 'day': 'day', 'hours': 'hours', 'over': 'Elfia Arcen 2026 is over. See you next edition!', 'free': 'Nothing on at this stage', 'live': 'live'}}
 
 T = {
  "nl": dict(file="lineup.html", lang="nl", pre="", other="en/lineup.html", otherlang="en",
@@ -244,7 +300,8 @@ def build(t, days):
                 ("all", "music", "show", "work"), t["count"],
                 (meta["n"], meta["counts"]["music"], meta["counts"]["show"], meta["counts"]["work"])))
         parts.append(
-            f'<section id="{meta["id"]}"><div class="wrap">\n  <h2>{t["dayh"][i]}</h2>\n'
+            f'<section id="{meta["id"]}" data-date="{DAY_DATES[i]}">'
+            f'<div class="wrap">\n  <h2>{t["dayh"][i]}</h2>\n'
             f'  <p class="lede">{meta["stages"]} {t["stages"]} · {spans} · {meta["span"]}</p>\n'
             f'</div><div class="wrap tt-wide">{grid}</div><div class="wrap">{lst}</div></section>')
 
@@ -278,6 +335,10 @@ def build(t, days):
     nav, footer = nav_of(t)
     p = t["pre"]
     theme = THEME_SCRIPT
+    nowbar = ('<section id="nowbar" class="nowbar" hidden><div class="wrap">\n'
+              f'  <h2>{NOW_UI[t["lang"]]["h"]}</h2>\n'
+              '  <div class="nowgrid" id="nowgrid"></div>\n</div></section>')
+    now_js = NOW_JS.replace("__L__", json.dumps(NOW_UI[t["lang"]], ensure_ascii=False))
 
     return f"""<!doctype html>
 <html lang="{t['lang']}">
@@ -295,7 +356,7 @@ def build(t, days):
 <body>
 <a href="#main" class="sr">{t['skip']}</a>
 {nav}
-<main id="main">
+<main id="main">{nowbar}
 <header class="page-head"><div class="wrap"><h1>{t['h1']}</h1><p>{t['head']}</p>{SRCNOTE[t['lang']]}</div></header><section style="padding-bottom:0;border:0"><div class="wrap">
   <div class="daytabs">{tabs}
   </div>
@@ -316,6 +377,7 @@ def build(t, days):
 </div></section>
 </main>
 {footer}
+{now_js}
 </body>
 </html>
 """

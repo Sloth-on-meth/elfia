@@ -10,16 +10,18 @@
 <link rel="alternate" hreflang="en" href="https://elfia.nl/en/vendors.html">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ctext y='26' font-size='26'%3E%F0%9F%8F%B0%3C/text%3E%3C/svg%3E">
 <script>document.documentElement.classList.add("js");try{if(localStorage.theme==="dark")document.documentElement.dataset.theme="dark"}catch(e){}
-function elfiaTheme(){var r=document.documentElement,d=r.dataset.theme==="dark";if(d)r.removeAttribute("data-theme");else r.dataset.theme="dark";try{localStorage.theme=d?"light":"dark"}catch(e){}}</script>
+function elfiaTheme(){var r=document.documentElement,d=r.dataset.theme==="dark";if(d)r.removeAttribute("data-theme");else r.dataset.theme="dark";try{localStorage.theme=d?"light":"dark"}catch(e){}}
+function elfiaNav(){var b=document.querySelector(".navtoggle"),m=document.getElementById("navmenu");if(!b||!m)return;var R=document.documentElement;function set(o){b.setAttribute("aria-expanded",o?"true":"false");R.classList.toggle("nav-open",o);}b.addEventListener("click",function(){set(b.getAttribute("aria-expanded")!=="true");});m.addEventListener("click",function(e){if(e.target.closest("a"))set(false);});document.addEventListener("keydown",function(e){if(e.key==="Escape"&&b.getAttribute("aria-expanded")==="true"){set(false);b.focus();}});document.addEventListener("click",function(e){if(!e.target.closest(".nav"))set(false);});addEventListener("resize",function(){if(innerWidth>960)set(false);});}if(document.readyState!=="loading")elfiaNav();else document.addEventListener("DOMContentLoaded",elfiaNav);</script>
 </head>
 <body>
 <a href="#main" class="sr">Skip to content</a>
 <nav class="nav"><div class="wrap">
-<a href="index.html" class="brand">ELFIA</a><a href="index.html">Arcen 2026</a><a href="programme.html">What Awaits You</a><a href="lineup.html">Line-up</a><a href="map.html">Map</a><a href="food.html">Food &amp; drink</a><a href="vendors.html" aria-current="page">Vendors</a><a href="visit.html">Visitor information</a><a href="policy.html">Policy</a><a href="faq.html">FAQ</a><a href="team.html">Team</a>
+<a href="index.html" class="brand">ELFIA</a><button class="navtoggle" type="button" aria-expanded="false" aria-controls="navmenu" aria-label="Menu"><span></span></button><div class="navmenu" id="navmenu"><a href="index.html">Arcen 2026</a><a href="programme.html">What Awaits You</a><a href="lineup.html">Line-up</a><a href="map.html">Map</a><a href="food.html">Food &amp; drink</a><a href="vendors.html" aria-current="page">Vendors</a><a href="visit.html">Visitor information</a><a href="policy.html">Policy</a><a href="faq.html">FAQ</a><a href="team.html">Team</a></div>
 <a class="lang" href="../vendors.html" hreflang="nl" rel="alternate">NL</a><button class="theme-toggle" type="button" onclick="elfiaTheme()" aria-label="Switch between light and dark theme" title="Light / dark"></button>
 </div></nav>
 <main id="main">
-<header class="page-head"><div class="wrap"><h1>Vendors</h1><p><!--N--> stalls across <!--R--> realms. Jump to a realm or scroll through — the descriptions come from the organisers.</p><p class="srcnote"><strong>Where does this come from?</strong> This list is taken straight from Elfia’s programme API and reproduced unedited — names, descriptions and grouping are exactly as the organisers supply them. Elfia does not display this data anywhere on their own site, so there is no official page to check it against. It may be incomplete or out of date and can still change before the event. This is not an official Elfia publication.</p></div></header><section style="padding-bottom:0;border:0"><div class="wrap">
+<header class="page-head"><div class="wrap"><h1>Vendors</h1><p><!--N--> stalls across <!--R--> realms. Note: these are the organisers' market realms, not the 13 numbered areas on the <a href="map.html">map</a> — see <a href="programme.html">What Awaits You</a>. Jump to a realm or scroll through; the descriptions come from the organisers.</p><p class="srcnote"><strong>Where does this come from?</strong> This list is taken straight from Elfia’s programme API and reproduced unedited — names, descriptions and grouping are exactly as the organisers supply them. Elfia does not display this data anywhere on their own site, so there is no official page to check it against. It may be incomplete or out of date and can still change before the event. This is not an official Elfia publication.</p></div></header><section style="padding-bottom:0;border:0"><div class="wrap">
+  <p class="vsearch"><label for="vq">Search the stalls</label><input type="search" id="vq" placeholder="name or keyword…" autocomplete="off" aria-describedby="vqn"><span id="vqn" aria-live="polite"></span></p>
   <p class="jumplabel">Jump to a realm</p>
   <div class="daytabs jumps">
 <!--JUMPS-->
@@ -42,5 +44,20 @@ function elfiaTheme(){var r=document.documentElement,d=r.dataset.theme==="dark";
  <a href="https://www.youtube.com/@kingdomofelfia" rel="noopener">YouTube</a> ·
  <a href="https://www.tiktok.com/@kingdomofelfia?lang=en" rel="noopener">TikTok</a></p>
 </div></footer>
+<script>
+(function(){var q=document.getElementById("vq");if(!q)return;
+var norm=function(s){return s.normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase()};
+var cards=[].slice.call(document.querySelectorAll(".ven")),
+    blocks=[].slice.call(document.querySelectorAll(".realmblock")),
+    az=[].slice.call(document.querySelectorAll(".azlist li")),
+    out=document.getElementById("vqn");
+cards.concat(az).forEach(function(el){el._t=norm(el.textContent)});
+function run(){var v=norm(q.value.trim()),n=0;
+ cards.forEach(function(c){var m=!v||c._t.indexOf(v)>-1;c.hidden=!m;if(m)n++});
+ blocks.forEach(function(b){b.hidden=!b.querySelector(".ven:not([hidden])")});
+ az.forEach(function(l){l.hidden=!!v&&l._t.indexOf(v)<0});
+ out.textContent=v?(n?n+" of "+cards.length:"nothing found"):"";}
+q.addEventListener("input",run);})();
+</script>
 </body>
 </html>
