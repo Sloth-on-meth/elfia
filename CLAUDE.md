@@ -62,7 +62,7 @@ sh build/build-all.sh
 `make-lineup.py` prints any act with no label — add those to `lineup-labels.json` or they
 render without a chip and count as "workshops & more" in the filter.
 
-Pages **not** generated (hand-maintained): `map`, `visit`, `policy`, `faq`, `team`.
+Pages **not** generated (hand-maintained): `map`, `visit`, `policy`, `faq`.
 Adding a page means adding its nav entry to all the others.
 
 ## Styling
@@ -109,7 +109,7 @@ Two, both inline, both degrade to nothing:
   end up empty, filters the A–Z list and reports a count. The input is `display:none` until the
   `js` class lands, so without JavaScript the full list is simply there.
 
-* **the nav** — below `60rem` the eleven links collapse into a hamburger. `<button>` with
+* **the nav** — below `70rem` the ten links collapse into a hamburger. `<button>` with
   `aria-expanded` and `aria-controls`, a 44×44 target, Escape closes it and returns focus to
   the button, a click outside or on a link closes it, and resizing past the breakpoint resets
   it. Closed means `display:none`, so the links are not reachable by keyboard while hidden.
@@ -258,9 +258,9 @@ phone's own pinch-zoom.
   do not write it from memory.
 - **Name normalisation folds diacritics.** `Żniwa` and `Zniwa` both appear in the source
   data and must collide, hence `unicodedata.normalize` in every key function.
-- **Nav has 10 entries** (Team was dropped 4 Sept, like History before it). They fit the 66rem wrap down to 1024px; below `60rem` the hamburger
-  takes over. Verified at 1440/1280/1024/900/760/390 with no overflow at any of them. A
-  twelfth entry would need the breakpoint raised.
+- **Nav has 10 entries** (Team was dropped 4 Sept, like History before it). The nav has its
+  own `max-width:74rem`; it stays on one line from 1180px up and the hamburger takes over below
+  `70rem`. Adding an entry means re-measuring — count distinct link `top` values, not overflow.
 - **The API's realm list is not trustworthy.** It holds 20 entries: two are superseded
   names kept alongside their replacements (Giostra Fortunia, Academy Hall — folded via
   `realm-aliases.json`), three areas on the map are missing from it entirely (Border to
@@ -313,10 +313,42 @@ slots and signing sessions are calendar clutter.
 labels changed to Bezoekinformatie and Vendors, `programme.html` and the home page's realm
 teaser rebuilt from the API, and the styling brought closer to elfia.com (see above).
 
+**17 Sept 2026** (two days out) — re-pulled `programme`, `faqList`, `header`, `news`.
+The timetable was **byte-identical** to 4 Sept (65 slots), so the `.ics` files did not change.
+What did change, and where it went:
+
+* **Parking.** News item #38 "The Roads to the Kingdom are Changing": Waterschap Limburg's
+  Maas2050 dike works have fenced off or removed most of the free verge and village parking
+  around Arcen. `visit.html` had *nothing* on parking, buses or bikes — it now leads its
+  "Getting here" section with a warning and four options: castle car park ticket
+  (kasteeltuinen.nl), the **Lomm car park with a free shuttle** (from the FAQ, not the news
+  item — the news only lists three routes), bus 83/30 to stop Rotonde N271, and bike parking.
+* **Cups.** News #39: Elixir Bars serve in Drach-oc cups with a **€2 deposit**. News #37: the
+  nearest Geldmaat is ~400 m from the entrance, reachable with the re-entry stamp. Both on
+  `food.html`; the stamp also on `visit.html`.
+* **FAQ.** Elfia Temptation registration moved **15:00 → 14:30** and to the "Information
+  Booth"; the accessibility answer was rewritten; the whole **Horses** category (3 questions,
+  incl. "only 5 riders per day") was removed. Horses are still welcome per the pets answer and
+  a €1 horse parking permit per an older news item, so `visit.html` and the short FAQ answer
+  keep horses but drop the no-longer-published five-rider limit. Question count 61 → 58.
+* **Programme data.** Caterers 19 → 23 (Unitea, Eselmeisterei, Franz, Holy crepe), traders
+  124 → 138 (several moved realm, e.g. six from Folk Faire to Willow Way), highlights 41 → 44
+  (the embassies, Erik The Viking), one new Academy workshop. Merlin's Sanctum now has stalls,
+  so it moved from "Also announced" to "Market areas" on its own.
+* **"Plan vooruit"** on `programme.html` had been wrong since the first build ("Folk Ball",
+  "claim at Tourist Info"). Rewritten from the current node description plus FAQ times. The
+  info booth is placed at Elfia Treasures because the API labels that stage
+  "(Merch and Info Booth)" and the map puts the S and i icons together at Music Court.
+
+One trader is named just **"11"** in the source (Zen Garden, jewellery). Reproduced as-is.
+
 ## Open
 
-- `header` carries a live ticket banner (currently "Only 643 Legendary Elf Sunday Tickets
-  Left!"). Nothing on the site shows it. It is the most visitor-relevant fact in the API
+- `header` carries a live ticket banner (17 Sept: "Last Tickets Still Available for Elfia
+  Arcen 19–20 September!"). Nothing on the site shows it. It is the most visitor-relevant fact in the API
   and the most volatile — baking it into static HTML can go stale the wrong way.
-- 36 news articles unused.
+- 38 news articles; #37–#39 are used on `visit.html`/`food.html`, the rest unused. **Check
+  news before every update** — the parking change was only announced there.
+- The API still carries the "This is just the beginning, more program updates are coming
+  soon" remark, so the matching warning on the line-up stays, even two days out.
 - The official elfia.nl TLS certificate expired 22 Aug 2026.

@@ -210,6 +210,8 @@ details[open] summary{border-bottom:1px solid var(--line)}
 .note{border-left:3px solid var(--gold);background:var(--bg2);padding:.95rem 1.15rem .95rem 1.15rem;
       border-radius:0 8px 8px 0;font-size:.93rem;position:relative}
 .note.warn{border-left-color:var(--red)}
+.srcline{font-size:.8rem;color:var(--dim);margin:.7rem 0 1.6rem}
+.subh{margin:0 0 .7rem;font-size:1.05rem}
 .note :last-child{margin-bottom:0}
 .yes{color:var(--ok);font-weight:600}
 .no{color:var(--no);font-weight:600}

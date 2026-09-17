@@ -23,9 +23,9 @@ under `/en/`. Every page has an EN/NL toggle in the nav.
 | `map.html` | Grounds map image + all 46 locations transcribed as text |
 | `food.html` | Eten & drinken: all 19 caterer stalls by realm, dietary filter, allergen guidance |
 | `vendors.html` | Vendors: all 124 traders by realm, jump links + an A–Z index of every stall |
-| `visit.html` | Opening hours, address, accessible parking, re-entry, children |
+| `visit.html` | Opening hours, address, **parking & public transport** (castle car park, Lomm + shuttle, bus, bike), re-entry, children |
 | `policy.html` | Visitor policy: weapons, animals, food, alcohol, smoking, drones |
-| `faq.html` | Short Q&A + the full FAQ: all 61 of Elfia's questions in 12 categories |
+| `faq.html` | Short Q&A + the full FAQ: all 58 of Elfia's questions in 11 categories |
 | `style.css` | Shared stylesheet (palette and display face taken from elfia.com — see `CLAUDE.md`) |
 | `fonts/` | IM Fell French Canon, self-hosted (37 KB, open licence) |
 | `arcen-map.webp` | Recompressed grounds map (1600px, ~183 KB) |
@@ -93,7 +93,7 @@ Cloudflare-fronted, CORS restricted to `https://elfia.nl`. Known endpoints:
 | Endpoint | Contents | `lang` localizes? |
 |---|---|---|
 | `programme` | Timetable (5 stages × 2 days), realms, highlights, **caterers, exhibitors** | no |
-| `faqList` | 61 Q&As in 12 categories | yes |
+| `faqList` | 58 Q&As in 11 categories (two titles repeat across categories) | yes |
 | `news` | 36 news articles (title, HTML body, image) | no |
 | `header` | Live announcement banner | no |
 | `termsAndConditions` | Full T&C text | no |
@@ -139,7 +139,7 @@ can go stale (e.g. the announcement banner, sold-out status).
 
 - The official **elfia.nl TLS certificate expired 22 Aug 2026** — renew it; visitors get
   a browser security warning until then.
-- The full FAQ (61 questions) on `faq.html` is sourced from the `faqList` endpoint, sanitized to
+- The full FAQ (58 questions) on `faq.html` is sourced from the `faqList` endpoint, sanitized to
   a safe tag whitelist. The answers are the official **English** copy; `faqList` also serves Dutch,
   but it was rate-limited when the snapshot was taken — swap the Dutch answers in when reachable.
 - `shops[].coverImage` gives a photo per caterer; `food.html` deliberately does not use them,
