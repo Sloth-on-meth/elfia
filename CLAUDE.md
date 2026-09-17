@@ -116,7 +116,34 @@ Two, both inline, both degrade to nothing:
   The bar-to-X animation sits behind `prefers-reduced-motion`. Without JavaScript the button
   never appears and the menu falls back to the horizontally scrolling row it was before.
 
-### The theme toggle
+### The theme switch
+
+A `<button role="switch" aria-checked>` styled as a pill: sun on the left, moon on the right,
+a knob that slides between them. The knob moves via `left`/`right` rather than a transform, so
+it stays put when the switch is inside a sticky nav. `aria-checked` is set on click and on
+`DOMContentLoaded` (a returning dark-mode visitor must not get a switch that claims "off").
+Hidden without JavaScript, like everything else.
+
+### The language switch
+
+A bordered pill with an **inline SVG flag** plus the language code — the Union Jack on Dutch
+pages, the Dutch tricolour on English ones. Flags are inline SVG rather than emoji on purpose:
+Windows has no flag emoji, so 🇬🇧 renders there as the letters "GB". Roughly 300 bytes each,
+no request.
+
+### Nav sizing
+
+**The nav wrapped onto two lines at every width, including 1600px** — the eleven links plus
+brand, EN and switch need 1048px and the shared `.wrap` is 1056px, which the flex gaps ate.
+The nav now has its own wider `max-width:74rem`, `.navmenu` is `flex-wrap:nowrap`, and the
+hamburger takes over below **70rem** (was 60rem). Verified: one line from 1180px up, hamburger
+from 1100px down.
+
+The regression that hid this: the breakpoint test only checked `scrollWidth > clientWidth`.
+A wrapping flex row does not overflow, so it passed while looking broken. **Count the distinct
+`top` values of the nav links instead.**
+
+### The old theme toggle
 
 A four-line inline script in every page head is the site's only JavaScript: it adds a `js`
 class to `<html>`, restores `localStorage.theme`, and defines `elfiaTheme()` for the nav
@@ -231,7 +258,7 @@ phone's own pinch-zoom.
   do not write it from memory.
 - **Name normalisation folds diacritics.** `Żniwa` and `Zniwa` both appear in the source
   data and must collide, hence `unicodedata.normalize` in every key function.
-- **Nav has 11 entries.** They fit the 66rem wrap down to 1024px; below `60rem` the hamburger
+- **Nav has 10 entries** (Team was dropped 4 Sept, like History before it). They fit the 66rem wrap down to 1024px; below `60rem` the hamburger
   takes over. Verified at 1440/1280/1024/900/760/390 with no overflow at any of them. A
   twelfth entry would need the breakpoint raised.
 - **The API's realm list is not trustworthy.** It holds 20 entries: two are superseded

@@ -239,10 +239,14 @@ render();setInterval(render,60000);
 THEME_SCRIPT = (
     '<script>document.documentElement.classList.add("js");'
     'try{if(localStorage.theme==="dark")document.documentElement.dataset.theme="dark"}catch(e){}\n'
-    'function elfiaTheme(){var r=document.documentElement,d=r.dataset.theme==="dark";'
+    'function elfiaTheme(b){var r=document.documentElement,d=r.dataset.theme==="dark";'
     'if(d)r.removeAttribute("data-theme");else r.dataset.theme="dark";'
-    'try{localStorage.theme=d?"light":"dark"}catch(e){}}'
-    '\nfunction elfiaNav(){var b=document.querySelector(".navtoggle"),m=document.getElementById("navmenu");if(!b||!m)return;var R=document.documentElement;function set(o){b.setAttribute("aria-expanded",o?"true":"false");R.classList.toggle("nav-open",o);}b.addEventListener("click",function(){set(b.getAttribute("aria-expanded")!=="true");});m.addEventListener("click",function(e){if(e.target.closest("a"))set(false);});document.addEventListener("keydown",function(e){if(e.key==="Escape"&&b.getAttribute("aria-expanded")==="true"){set(false);b.focus();}});document.addEventListener("click",function(e){if(!e.target.closest(".nav"))set(false);});addEventListener("resize",function(){if(innerWidth>960)set(false);});}if(document.readyState!=="loading")elfiaNav();else document.addEventListener("DOMContentLoaded",elfiaNav);''</script>')
+    'try{localStorage.theme=d?"light":"dark"}catch(e){}'
+    'if(b)b.setAttribute("aria-checked",d?"false":"true");}'
+    'document.addEventListener("DOMContentLoaded",function(){'
+    'var b=document.querySelector(".themeswitch");'
+    'if(b)b.setAttribute("aria-checked",document.documentElement.dataset.theme==="dark"?"true":"false");});'
+    '\nfunction elfiaNav(){var b=document.querySelector(".navtoggle"),m=document.getElementById("navmenu");if(!b||!m)return;var R=document.documentElement;function set(o){b.setAttribute("aria-expanded",o?"true":"false");R.classList.toggle("nav-open",o);}b.addEventListener("click",function(){set(b.getAttribute("aria-expanded")!=="true");});m.addEventListener("click",function(e){if(e.target.closest("a"))set(false);});document.addEventListener("keydown",function(e){if(e.key==="Escape"&&b.getAttribute("aria-expanded")==="true"){set(false);b.focus();}});document.addEventListener("click",function(e){if(!e.target.closest(".nav"))set(false);});addEventListener("resize",function(){if(innerWidth>1120)set(false);});}if(document.readyState!=="loading")elfiaNav();else document.addEventListener("DOMContentLoaded",elfiaNav);''</script>')
 
 SRCNOTE = {
  "nl": '<p class="srcnote"><strong>Waar komt dit vandaan?</strong> Deze lijst komt rechtstreeks '
